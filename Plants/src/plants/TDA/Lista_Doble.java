@@ -36,7 +36,7 @@ public class Lista_Doble {
         }
     }
     
-    boolean esVacia()
+    public boolean esVacia()
     {
         return (inicio==null)? true:false;
     }
@@ -60,29 +60,32 @@ public class Lista_Doble {
     public Object ExtraerInicio()
     {
         Object devolver=inicio.getObjeto();
-        inicio=inicio.getSiguiente();
+        Nodo temporal=inicio.getSiguiente();
         if(inicio==null)
         {
-            inicio.setAnterior(null);
+             inicio=temporal;           
         }
         else
         {
-            fin=null;
+            temporal.setAnterior(null);
+            inicio=temporal;
         }
         return devolver;
     }
     
-    public Object ExtrarFinal()
+    public Object ExtraerFinal()
     {
         Object devolver=fin.getObjeto();
-        fin=fin.getAnterior();
+        Nodo temporal=fin.getAnterior();
         if(fin==null)
         {
-            fin.setSiguiente(null);
+            //temporal.setSiguiente(null);
+            fin=temporal;
         }
         else
         {
-            fin=null;
+            temporal.setSiguiente(null);
+            fin=temporal;
         }
         return devolver;
     }

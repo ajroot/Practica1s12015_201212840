@@ -22,6 +22,8 @@ public class items extends javax.swing.JFrame {
         initComponents();
         setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
         //setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        this.nombretxt.setText(nombreJugador);
+        this.Cant.setText(String.valueOf(cantidad));
         
     }
     String tipo()
@@ -154,7 +156,13 @@ public class items extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_jButton2ActionPerformed
-
+    public void limpiar()
+    {
+        cantidad=0;
+        nombreJugador="";
+    }
+    
+    
     private void CantKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CantKeyTyped
         char car=evt.getKeyChar();
         if((car<'0'||car>'9')) evt.consume();

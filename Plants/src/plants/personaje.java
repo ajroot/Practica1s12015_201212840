@@ -57,5 +57,13 @@ public class personaje {
         this.AtaqueDirecto = AtaqueDirecto;
     }
     
+    public void limpiar()
+    {
+        String nombre="";
+        int canitdad=0;
+        int imagen=0;
+        int puntos=0;
+        boolean AtaqueDirecto=false;
+    }
     
 }
