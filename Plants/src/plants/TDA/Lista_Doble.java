@@ -61,9 +61,12 @@ public class Lista_Doble {
     {
         Object devolver=inicio.getObjeto();
         Nodo temporal=inicio.getSiguiente();
-        if(inicio==null)
+        if(temporal==null)
         {
-             inicio=temporal;           
+            
+             inicio=fin=temporal;           
+//             inicio.setAnterior(null);
+//            inicio.setSiguiente(null);
         }
         else
         {
@@ -77,10 +80,10 @@ public class Lista_Doble {
     {
         Object devolver=fin.getObjeto();
         Nodo temporal=fin.getAnterior();
-        if(fin==null)
+        if(temporal==null)
         {
             //temporal.setSiguiente(null);
-            fin=temporal;
+            fin=inicio=temporal;
         }
         else
         {
@@ -96,8 +99,21 @@ public class Lista_Doble {
         while(temp!=null)
         {
             //aqui mostrara independiente de que objeto sea
+            System.out.println(temp.getObjeto());
             temp=temp.getSiguiente();
+            
         }
     }
     
+    public void MostrarAlrevez()//Recorrer matriz
+    {
+        Nodo temp=fin;
+        while(temp!=null)
+        {
+            //aqui mostrara independiente de que objeto sea
+            System.out.println(temp.getObjeto());
+            temp=temp.getAnterior();
+            
+        }
+    }
 }

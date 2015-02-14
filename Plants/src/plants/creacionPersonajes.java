@@ -25,13 +25,21 @@ public class creacionPersonajes extends javax.swing.JFrame {
      */
     public creacionPersonajes( ) {
         initComponents();
-        jPanel1.setLayout(new GridLayout());//new GridBagLayout());
+        jPanel1.setLayout(new GridLayout());
+        //scrollpanel.setLayout(new GridLayout());
+        //new GridBagLayout());
         //scrollpanel.setLayout(new FlowLayout());
         //GridBagLayout gbl=new GridBagLayout();
     //GridBagConstraints gbc=new GridBagConstraints();
     //jPanel1.add(p);
     //setLayout(gbl);
         cargarPanel(jPanel1,p);
+    }
+    
+    public void modificarPanel()
+    {
+        panel2.setLayout(new GridBagLayout());
+        
     }
 
     public void setNombres(String nombreUsuario,String tipo)
@@ -93,6 +101,7 @@ public class creacionPersonajes extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         scrollpanel = new javax.swing.JScrollPane();
         jButton2 = new javax.swing.JButton();
+        panel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -120,6 +129,17 @@ public class creacionPersonajes extends javax.swing.JFrame {
 
         jButton2.setText("listo");
 
+        javax.swing.GroupLayout panel2Layout = new javax.swing.GroupLayout(panel2);
+        panel2.setLayout(panel2Layout);
+        panel2Layout.setHorizontalGroup(
+            panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        panel2Layout.setVerticalGroup(
+            panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 285, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -129,21 +149,24 @@ public class creacionPersonajes extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(scrollpanel)
                             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(label1)
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 273, Short.MAX_VALUE)
+                        .addGap(0, 443, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jButton2)
                                 .addGap(20, 20, 20))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap())))))
+                                .addContainerGap())))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(scrollpanel, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(panel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,40 +178,45 @@ public class creacionPersonajes extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(scrollpanel, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(scrollpanel, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jButton2)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
     Lista_Doble lista=new Lista_Doble();
-    Lista_Doble listaPaneles=new Lista_Doble();
-    Lista_Doble listaPanelesTemporal=new Lista_Doble();
-    
+    Lista_Doble listaP=new Lista_Doble();
+    int lugar=0;
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Plantas nuevoPanel=new Plantas();
+        lugar++;
+        nuevoPanel=p;
+       lista.InsertarFinal(nuevoPanel);
         
-        Plantas agregar=new Plantas();
-        lista.InsertarFinal(p);
+        listaP=lista;
         
-        //listaPaneles.InsertarFinal(p);
-        listaPanelesTemporal=lista;
-        
-        //listaPanelesTemporal=listaPaneles;
-        
+        panel2.setLayout(null);
+        panel2.setLayout(new GridLayout(lugar,1));
         while(!lista.esVacia())
-        {            
-            agregar=(Plantas)listaPanelesTemporal.ExtraerInicio();
-            System.out.println("******************************");
-            System.out.println(agregar.Nombre());
+        {   
+            
+            nuevoPanel=(Plantas)listaP.ExtraerInicio();
+            System.out.println("este es un panel"+nuevoPanel.Nombre());
+            nuevoPanel.setDatos();
+            nuevoPanel.updateUI();
+            panel2.add (nuevoPanel);
+            
         }
         
 
         //scrollpanel.setViewportView(agregar);
-        //cargarPanel(jPanel1,p);
+        cargarPanel(jPanel1,p);
         //scrollpanel.updateUI();
-        //this.pack();
+        this.pack();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -233,6 +261,7 @@ public class creacionPersonajes extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel label1;
+    private javax.swing.JPanel panel2;
     private javax.swing.JScrollPane scrollpanel;
     // End of variables declaration//GEN-END:variables
 }
