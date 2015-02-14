@@ -22,14 +22,19 @@ public class Plantas extends javax.swing.JPanel {
         
     }
     personaje nuevo=new personaje();
-    public void setDatos()
+    public void setNuevo(personaje nuevop)
     {
-        nombrePersonajes.setText(nuevo.getNombre());
-        numeroAtaque.setText(String.valueOf(nuevo.getPuntos()));
-        numeroPersonajes.setText(String.valueOf(nuevo.getCanitdad()));
-        cambiarImagen(nuevo.getImagen());
+        this.nuevo=nuevop;
+        setDatos(nuevop);
+    }
+    public void setDatos(personaje entrada)
+    {
+        nombrePersonajes.setText(entrada.getNombre());
+        numeroAtaque.setText(String.valueOf(entrada.getPuntos()));
+        numeroPersonajes.setText(String.valueOf(entrada.getCanitdad()));
+        cambiarImagen(entrada.getImagen());
         boolean at=false;
-        if(nuevo.isAtaqueDirecto())
+        if(entrada.isAtaqueDirecto())
         {
             rbtnDirecto.setSelected(true);
             rbtnDisparo.setSelected(false);

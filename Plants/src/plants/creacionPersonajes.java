@@ -194,7 +194,8 @@ public class creacionPersonajes extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Plantas nuevoPanel=new Plantas();
         lugar++;
-        nuevoPanel=p;
+        nuevoPanel.setNuevo(p.Cargar());
+        
        lista.InsertarFinal(nuevoPanel);
         
         listaP=lista;
@@ -206,7 +207,7 @@ public class creacionPersonajes extends javax.swing.JFrame {
             
             nuevoPanel=(Plantas)listaP.ExtraerInicio();
             System.out.println("este es un panel"+nuevoPanel.Nombre());
-            nuevoPanel.setDatos();
+            //nuevoPanel.setDatos();
             nuevoPanel.updateUI();
             panel2.add (nuevoPanel);
             
