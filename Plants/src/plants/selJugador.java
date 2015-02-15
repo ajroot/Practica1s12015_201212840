@@ -6,6 +6,8 @@
 
 package plants;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Javier
@@ -15,6 +17,8 @@ public class selJugador extends javax.swing.JFrame {
  
     public selJugador() {
         initComponents();
+        Plantas.plantas(true);
+        Zombies.plantas(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -43,6 +47,11 @@ public class selJugador extends javax.swing.JFrame {
         });
 
         jButton3.setText("Iniciar Juego");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Eliminar Datos");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -56,23 +65,23 @@ public class selJugador extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(75, 75, 75)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jButton3)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton4)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jButton4))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(28, 28, 28)))
+                .addContainerGap(94, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(157, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton2)
@@ -80,23 +89,25 @@ public class selJugador extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3)
                     .addComponent(jButton4))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
         items Plantas=new items();
         items Zombies=new items();
-        
+        boolean Ingreso1=false;
+        boolean Ingreso2=false;
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
-        Plantas.plantas(true);
+        Ingreso1=true;
         Plantas.show();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       Zombies.show();
-       Zombies.plantas(false);
+       Ingreso2=true;
+        Zombies.show();
+       
        
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -104,6 +115,37 @@ public class selJugador extends javax.swing.JFrame {
         Plantas.limpiar();
         Zombies.limpiar();
     }//GEN-LAST:event_jButton4ActionPerformed
+creacionPersonajes plants=new creacionPersonajes();
+creacionPersonajes zoobies=new creacionPersonajes();
+
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        boolean Error=false;
+        if(Ingreso1==true&&Ingreso2==true)
+        {
+        if(Plantas.nombreJugador.equals("")||Plantas.cantidad==0)
+        {
+            JOptionPane.showMessageDialog(null,"Faltan datos del Jugador PLANTAS", "Error",JOptionPane.ERROR_MESSAGE);
+            Error=true;
+        }
+        if(Zombies.nombreJugador.equals("")||Zombies.cantidad==0)
+        {
+            JOptionPane.showMessageDialog(null,"Faltan datos del Jugador Zombies", "Error",JOptionPane.ERROR_MESSAGE);
+            Error=true;
+        }
+        if(Error!=true)
+        {
+            plants.setNombres(Plantas.nombreJugador,"Plantas");
+            plants.setVisible(true);
+        }
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null,"Debe crear sus Jugadores", "Error",JOptionPane.ERROR_MESSAGE);
+        }
+        
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     
     

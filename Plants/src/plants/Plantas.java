@@ -6,6 +6,10 @@
 
 package plants;
 
+import java.awt.Image;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Javier
@@ -15,6 +19,7 @@ public class Plantas extends javax.swing.JPanel {
     /**
      * Creates new form Plantas
      */
+    String tipo="Plantas";
     public Plantas() {
         initComponents();
         
@@ -271,10 +276,15 @@ public class Plantas extends javax.swing.JPanel {
       cambiarImagen(imagen);        
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void cambiarImagen(int img)
+    public void cambiarImagen(int img)
     {
-        
+        String path="../imagenes/"+tipo+"/"+String.valueOf(img)+".png";
+        ImageIcon imgIcon = new ImageIcon(getClass().getResource(path));
+        Image imgEscalada = imgIcon.getImage().getScaledInstance(75,75, Image.SCALE_SMOOTH);
+        Icon iconoEscalado = new ImageIcon(imgEscalada);
+        jLabel1.setIcon(iconoEscalado);
     }
+    
     
     
     

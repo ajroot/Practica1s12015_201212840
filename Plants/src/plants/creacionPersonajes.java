@@ -20,19 +20,13 @@ import plants.TDA.Lista_Doble;
  */
 public class creacionPersonajes extends javax.swing.JFrame {
  Plantas p=new Plantas();
+ String tipoPersonaje="Plantas";
     /**
      * Creates new form creacionPersonajes
      */
     public creacionPersonajes( ) {
         initComponents();
         jPanel1.setLayout(new GridLayout());
-        //scrollpanel.setLayout(new GridLayout());
-        //new GridBagLayout());
-        //scrollpanel.setLayout(new FlowLayout());
-        //GridBagLayout gbl=new GridBagLayout();
-    //GridBagConstraints gbc=new GridBagConstraints();
-    //jPanel1.add(p);
-    //setLayout(gbl);
         cargarPanel(jPanel1,p);
     }
     
@@ -44,7 +38,16 @@ public class creacionPersonajes extends javax.swing.JFrame {
 
     public void setNombres(String nombreUsuario,String tipo)
     {
+        this.tipoPersonaje=tipo;
         this.label1.setText("Bienvenido "+nombreUsuario+" crea tus "+tipo);
+        p.tipo=tipo;
+        p.cambiarImagen(1);
+    }
+    
+    public void get()
+    {
+        int a=panel2.getComponentCount();
+        
     }
     
     
@@ -99,7 +102,6 @@ public class creacionPersonajes extends javax.swing.JFrame {
         label1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
-        scrollpanel = new javax.swing.JScrollPane();
         jButton2 = new javax.swing.JButton();
         panel2 = new javax.swing.JPanel();
 
@@ -163,9 +165,6 @@ public class creacionPersonajes extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap())))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(scrollpanel, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(panel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
@@ -178,10 +177,8 @@ public class creacionPersonajes extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(scrollpanel, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addGap(42, 42, 42)
                 .addComponent(jButton2)
                 .addContainerGap())
         );
@@ -206,7 +203,7 @@ public class creacionPersonajes extends javax.swing.JFrame {
         {   
             
             nuevoPanel=(Plantas)listaP.ExtraerInicio();
-            System.out.println("este es un panel"+nuevoPanel.Nombre());
+            //System.out.println("este es un panel"+nuevoPanel.Nombre());
             //nuevoPanel.setDatos();
             nuevoPanel.updateUI();
             panel2.add (nuevoPanel);
@@ -218,6 +215,7 @@ public class creacionPersonajes extends javax.swing.JFrame {
         cargarPanel(jPanel1,p);
         //scrollpanel.updateUI();
         this.pack();
+        get();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -263,6 +261,5 @@ public class creacionPersonajes extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel label1;
     private javax.swing.JPanel panel2;
-    private javax.swing.JScrollPane scrollpanel;
     // End of variables declaration//GEN-END:variables
 }
