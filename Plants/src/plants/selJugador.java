@@ -107,8 +107,6 @@ public class selJugador extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
        Ingreso2=true;
         Zombies.show();
-       
-       
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -116,7 +114,7 @@ public class selJugador extends javax.swing.JFrame {
         Zombies.limpiar();
     }//GEN-LAST:event_jButton4ActionPerformed
 creacionPersonajes plants=new creacionPersonajes();
-creacionPersonajes zoobies=new creacionPersonajes();
+creacionPersonajes zoombies=new creacionPersonajes();
 
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -137,6 +135,8 @@ creacionPersonajes zoobies=new creacionPersonajes();
         {
             plants.setNombres(Plantas.nombreJugador,"Plantas");
             plants.setVisible(true);
+            zoombies.setNombres(Zombies.nombreJugador,"Zombies");
+            zoombies.setVisible(true);
         }
         }
         else
