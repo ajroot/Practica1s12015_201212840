@@ -6,6 +6,8 @@
 
 package plants.TDA;
 
+import plants.Plantas;
+
 /**
  *
  * @author Javier
@@ -115,5 +117,24 @@ public class Lista_Doble {
             temp=temp.getAnterior();
             
         }
+    }
+     public void Vaciar()//Recorrer matriz
+    {
+        Nodo temporal;
+        while(inicio!=null)
+        {
+            temporal=fin.getAnterior();
+        if(temporal==null)
+        {
+            //temporal.setSiguiente(null);
+            fin=inicio=temporal;
+        }
+        else
+        {
+            temporal.setSiguiente(null);
+            fin=temporal;
+        }
+        }
+        
     }
 }
