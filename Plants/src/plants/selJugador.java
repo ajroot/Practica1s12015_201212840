@@ -113,9 +113,9 @@ public class selJugador extends javax.swing.JFrame {
         Plantas.limpiar();
         Zombies.limpiar();
     }//GEN-LAST:event_jButton4ActionPerformed
-creacionPersonajes plants=new creacionPersonajes();
-creacionPersonajes zoombies=new creacionPersonajes();
-
+//creacionPersonajes plants=new creacionPersonajes();
+//creacionPersonajes zoombies=new creacionPersonajes();
+CrearTodo crearper=new CrearTodo();
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         boolean Error=false;
@@ -133,10 +133,13 @@ creacionPersonajes zoombies=new creacionPersonajes();
         }
         if(Error!=true)
         {
-            plants.setNombres(Plantas.nombreJugador,"Plantas");
+            /*plants.setNombres(Plantas.nombreJugador,"Plantas");
             plants.setVisible(true);
             zoombies.setNombres(Zombies.nombreJugador,"Zombies");
-            zoombies.setVisible(true);
+            zoombies.setVisible(true);*/
+            crearper.cargar(Plantas.nombreJugador,Zombies.nombreJugador);
+            crearper.show();
+
         }
         }
         else

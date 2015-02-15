@@ -49,9 +49,14 @@ public class crearP extends javax.swing.JInternalFrame {
     public void getPersonajes()
     {
         int a=panel2.getComponentCount();
+        Plantas ax=new Plantas();
         for(int i=0;i<a;i++)
         {
-            lista.InsertarFinal(panel2.getComponent(i));
+            ax=(Plantas)panel2.getComponent(i);
+            System.out.println("se insertará"+ax.Nombre());
+            lista.InsertarFinal(ax);
+            
+            
         }
         
     }
@@ -97,6 +102,8 @@ public class crearP extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
+        setMinimumSize(new java.awt.Dimension(460, 460));
+        setPreferredSize(new java.awt.Dimension(552, 531));
 
         label1.setText("Crea tus ");
 
@@ -144,7 +151,7 @@ public class crearP extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 394, Short.MAX_VALUE)
+            .addGap(0, 541, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
@@ -160,7 +167,7 @@ public class crearP extends javax.swing.JInternalFrame {
                         .addGroup(layout.createSequentialGroup()
                             .addGap(112, 112, 112)
                             .addComponent(label1)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 269, Short.MAX_VALUE)
                             .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(76, 76, 76)))
                     .addContainerGap()))
@@ -213,8 +220,16 @@ public class crearP extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        System.out.println("se vaciará lista");
         lista.Vaciar();
+        listaP.Vaciar();
+        System.out.println("Mostará lista al derecho");
+        lista.Mostrar();
+        System.out.println("Mostrará lista alrevez");
+        lista.MostrarAlrevez();
+        System.out.println("mostrará personajes en el panel");
         getPersonajes();
+        panel2.removeAll();
         this.lugar=0;
         //this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
