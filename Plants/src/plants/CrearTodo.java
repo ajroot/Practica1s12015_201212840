@@ -34,6 +34,7 @@ public class CrearTodo extends javax.swing.JFrame {
             crearZombies.setNombres(nombreZombies, "Zombies");
             crearPlantas.show();
             crearZombies.show();
+            //crearZombies.
             escritorio.add(crearPlantas);        
             escritorio.add(crearZombies);
         

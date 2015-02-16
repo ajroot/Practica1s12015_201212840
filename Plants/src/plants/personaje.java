@@ -15,7 +15,17 @@ public class personaje {
     private int canitdad=0;
     private int imagen=0;
     private int puntos=0;
+    private String tipo="";
     private boolean AtaqueDirecto=false;
+    
+    public String getTipo()
+    {
+        return this.tipo;
+    }
+    public void setTipo(String tip)
+    {
+        this.tipo=tip;
+    }
 
     public String getNombre() {
         return nombre;

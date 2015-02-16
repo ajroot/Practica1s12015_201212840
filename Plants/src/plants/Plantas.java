@@ -37,6 +37,7 @@ public class Plantas extends javax.swing.JPanel {
         nombrePersonajes.setText(entrada.getNombre());
         numeroAtaque.setText(String.valueOf(entrada.getPuntos()));
         numeroPersonajes.setText(String.valueOf(entrada.getCanitdad()));
+        this.tipo=String.valueOf(entrada.getTipo());
         cambiarImagen(entrada.getImagen());
         boolean at=false;
         if(entrada.isAtaqueDirecto())
@@ -57,6 +58,7 @@ public class Plantas extends javax.swing.JPanel {
         nuevo.setNombre(this.nombrePersonajes.getText());
         nuevo.setImagen(imagen);
         nuevo.setPuntos(Integer.valueOf(numeroAtaque.getText()));
+        nuevo.setTipo(this.tipo);
     }
     
     public personaje Cargar()
@@ -287,6 +289,10 @@ public class Plantas extends javax.swing.JPanel {
         Image imgEscalada = imgIcon.getImage().getScaledInstance(75,75, Image.SCALE_SMOOTH);
         Icon iconoEscalado = new ImageIcon(imgEscalada);
         jLabel1.setIcon(iconoEscalado);
+    }
+    public void setTipo(String ti)
+    {
+        this.tipo=ti;
     }
     
     
