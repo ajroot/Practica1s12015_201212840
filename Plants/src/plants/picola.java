@@ -7,6 +7,7 @@
 package plants;
 
 import java.awt.GridLayout;
+import plants.TDA.Lista_Doble;
 
 /**
  *
@@ -24,7 +25,7 @@ public class picola extends javax.swing.JPanel {
     }
     objeto imagen=new objeto();
     
-    public void agregar()
+    public void agregar()//Lista_Doble list)
     {
         lugar++;
         this.setLayout(new GridLayout(lugar,1));

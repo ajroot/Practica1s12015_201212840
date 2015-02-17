@@ -7,6 +7,7 @@
 package plants;
 
 import javax.swing.JInternalFrame;
+import plants.TDA.Lista_Doble;
 
 /**
  *
@@ -26,10 +27,15 @@ public class CrearTodo extends javax.swing.JFrame {
     boolean jugadores=false;
     crearP crearPlantas= new crearP();
     crearP crearZombies= new crearP();
-    public void cargar(String nombreP, String nombreZ)
+    Lista_Doble listaPlantas=new Lista_Doble();
+    Lista_Doble listaZombies=new Lista_Doble();
+    
+    public void cargar(String nombreP, String nombreZ,Lista_Doble lp,Lista_Doble lz)
     {
         //System.out.println("plantas "+nombreP);
         //System.out.println("zombies "+nombreZ);
+        listaPlantas=lp;
+        listaZombies=lz;
         this.nombrePlantas=nombreP;
         this.nombreZombies=nombreZ;
             crearPlantas.setNombres(nombrePlantas, "Plantas");
@@ -108,7 +114,7 @@ public class CrearTodo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        
+        tablero tb=new tablero();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**

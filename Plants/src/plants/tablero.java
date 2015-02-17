@@ -6,6 +6,8 @@
 
 package plants;
 
+import plants.TDA.Lista_Doble;
+
 /**
  *
  * @author Javier
@@ -19,10 +21,19 @@ public class tablero extends javax.swing.JFrame {
         initComponents();
     }
     table t=new table();
+    Lista_Doble listaPlantas=new Lista_Doble();
+    Lista_Doble listaZombies=new Lista_Doble();
     public void getXY()
     {
         t.show();
         escritorio.add(t);
+    }
+    
+    table tablero=new table();
+    public void cargarTablero()
+    {
+        tablero.show();
+        escritorio.add(tablero);
     }
 
     

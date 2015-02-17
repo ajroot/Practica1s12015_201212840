@@ -35,6 +35,11 @@ public class objeto extends javax.swing.JPanel {
         this.tipo=ti;
     }
     
+    public void setImagen()
+    {
+        cambiarImagen();
+    }
+    
     public void cambiarImagen()
     {
         String path="../imagenes/"+tipo+"/"+String.valueOf(img)+".png";
