@@ -138,6 +138,7 @@ CrearTodo crearper=new CrearTodo();
             zoombies.setNombres(Zombies.nombreJugador,"Zombies");
             zoombies.setVisible(true);*/
             crearper.cargar(Plantas.nombreJugador,Zombies.nombreJugador);
+            crearper.setListaJugadores(Plantas.getLista(),Zombies.getLista());
             crearper.show();
 
         }

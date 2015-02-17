@@ -27,15 +27,13 @@ public class CrearTodo extends javax.swing.JFrame {
     boolean jugadores=false;
     crearP crearPlantas= new crearP();
     crearP crearZombies= new crearP();
-    Lista_Doble listaPlantas=new Lista_Doble();
     Lista_Doble listaZombies=new Lista_Doble();
-    
-    public void cargar(String nombreP, String nombreZ,Lista_Doble lp,Lista_Doble lz)
+    Lista_Doble listaPlantas=new Lista_Doble();
+    public void cargar(String nombreP, String nombreZ)
     {
         //System.out.println("plantas "+nombreP);
         //System.out.println("zombies "+nombreZ);
-        listaPlantas=lp;
-        listaZombies=lz;
+        
         this.nombrePlantas=nombreP;
         this.nombreZombies=nombreZ;
             crearPlantas.setNombres(nombrePlantas, "Plantas");
@@ -49,6 +47,11 @@ public class CrearTodo extends javax.swing.JFrame {
         
     }
 
+     public void setListaJugadores(Lista_Doble listap,Lista_Doble listaz)
+     {
+         this.listaPlantas=listap;
+         this.listaZombies=listaz;
+     }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
