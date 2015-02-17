@@ -6,6 +6,8 @@
 
 package plants;
 
+import plants.TDA.Lista_Doble;
+
 /**
  *
  * @author Javier
@@ -17,9 +19,12 @@ public class table extends javax.swing.JInternalFrame {
      */
     public table() {
         initComponents();
+        cargarPaneles();
     }
     picola pila=new picola();
     picola cola=new picola();
+    Lista_Doble plantas=new Lista_Doble();
+    Lista_Doble zombies=new Lista_Doble();
     
     public void cargarPaneles()
     {

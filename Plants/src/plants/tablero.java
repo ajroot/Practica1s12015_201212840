@@ -19,22 +19,35 @@ public class tablero extends javax.swing.JFrame {
      */
     public tablero() {
         initComponents();
+        cargarTablero();
     }
     table t=new table();
     Lista_Doble listaPlantas=new Lista_Doble();
     Lista_Doble listaZombies=new Lista_Doble();
+    Lista_Doble listaUsuarioPlantas=new Lista_Doble();
+    Lista_Doble listaUsuarioZombies=new Lista_Doble();
     public void getXY()
     {
         t.show();
         escritorio.add(t);
     }
     
-    table tablero=new table();
+    table tabler=new table();
     public void cargarTablero()
     {
-        tablero.show();
-        escritorio.add(tablero);
+        tabler.show();
+        escritorio.add(tabler);
     }
+    
+    public void CargarListas(Lista_Doble lp,Lista_Doble lz,Lista_Doble ljp,Lista_Doble ljz)
+    {
+        this.listaPlantas=lp;
+        this.listaZombies=lz;
+        this.listaUsuarioPlantas=ljp;
+        this.listaUsuarioZombies=ljz;
+    }
+    
+    
 
     
     

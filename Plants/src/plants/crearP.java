@@ -26,6 +26,7 @@ public class crearP extends javax.swing.JInternalFrame {
         jPanel1.setLayout(new GridLayout());
         cargarPanel(jPanel1,p);
     }
+    
      Lista_Doble lista=new Lista_Doble();
     Lista_Doble listaP=new Lista_Doble();
     int lugar=0;
@@ -53,7 +54,7 @@ public class crearP extends javax.swing.JInternalFrame {
         for(int i=0;i<a;i++)
         {
             ax=(Plantas)panel2.getComponent(i);
-            System.out.println("se insertará"+ax.Nombre());
+            //System.out.println("se insertará"+ax.Nombre());
             lista.InsertarFinal(ax);
             
             
@@ -225,20 +226,25 @@ public class crearP extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        System.out.println("se vaciará lista");
+        /*System.out.println("se vaciará lista");
         lista.Vaciar();
         listaP.Vaciar();
         System.out.println("Mostará lista al derecho");
         lista.Mostrar();
         System.out.println("Mostrará lista alrevez");
         lista.MostrarAlrevez();
-        System.out.println("mostrará personajes en el panel");
+        System.out.println("mostrará personajes en el panel");*/
+        lista.Vaciar();
         getPersonajes();
         panel2.removeAll();
         this.lugar=0;
         //this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    public Lista_Doble getLista()
+    {
+        return this.lista;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
