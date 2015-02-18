@@ -26,17 +26,14 @@ public class tablero extends javax.swing.JFrame {
     Lista_Doble listaZombies=new Lista_Doble();
     Lista_Doble listaUsuarioPlantas=new Lista_Doble();
     Lista_Doble listaUsuarioZombies=new Lista_Doble();
-    public void getXY()
-    {
-        t.show();
-        escritorio.add(t);
-    }
+    
     
     table tabler=new table();
     public void cargarTablero()
     {
-        tabler.show();
+        tabler.setListas(listaPlantas, listaZombies);
         escritorio.add(tabler);
+        tabler.show();
     }
     
     public void CargarListas(Lista_Doble lp,Lista_Doble lz,Lista_Doble ljp,Lista_Doble ljz)

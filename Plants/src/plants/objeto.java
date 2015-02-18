@@ -24,6 +24,7 @@ public class objeto extends javax.swing.JPanel {
     }
     int img=1;
     String tipo;
+    personaje per=new personaje();
     
     public void setImg(int imagen)
     {
@@ -38,6 +39,15 @@ public class objeto extends javax.swing.JPanel {
     public void setImagen()
     {
         cambiarImagen();
+    }
+    public void setNombre(String nombre)
+    {
+        this.lbNombre.setText(nombre);
+    }
+    
+    public void setPersonaje(personaje nuevo)
+    {
+        this.per=nuevo;
     }
     
     public void cambiarImagen()
@@ -72,9 +82,10 @@ public class objeto extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(lbImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addComponent(lbNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(lbNombre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbImagen, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE))
+                .addGap(0, 114, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

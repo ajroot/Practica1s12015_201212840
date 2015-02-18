@@ -51,6 +51,11 @@ public class Plantas extends javax.swing.JPanel {
             rbtnDisparo.setSelected(true);
         }
     }
+     public personaje getNuevo()
+    {
+        return this.nuevo;
+    }
+    
     public void GuardarDatos()
     {
         nuevo.setAtaqueDirecto(this.rbtnDirecto.isSelected());

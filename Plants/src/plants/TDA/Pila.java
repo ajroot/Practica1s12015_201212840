@@ -13,7 +13,7 @@ package plants.TDA;
 public class Pila {
     Lista_Doble pila;
             
-    Pila()
+    public Pila()
     {
         pila=new Lista_Doble();
     }

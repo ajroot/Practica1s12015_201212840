@@ -8,6 +8,7 @@ package plants;
 
 import java.awt.GridLayout;
 import plants.TDA.Lista_Doble;
+import plants.TDA.Pila;
 
 /**
  *
@@ -24,6 +25,12 @@ public class picola extends javax.swing.JPanel {
         
     }
     objeto imagen=new objeto();
+    Lista_Doble lista=new Lista_Doble();
+    Pila p=new Pila();
+    Cola c=new Cola();
+    boolean pila=false;
+    int tamaño=1;
+    int control=0;
     
     public void agregar()//Lista_Doble list)
     {
@@ -31,6 +38,34 @@ public class picola extends javax.swing.JPanel {
         this.setLayout(new GridLayout(lugar,1));
         objeto nuevo=new objeto();
         this.add(nuevo);
+    }
+    public void setLista(Lista_Doble list,boolean Plants,int tam)
+    {
+        this.pila=Plants;
+        this.lista=list;
+        this.tamaño=tam;
+    }
+    
+    public void cargarPersonajes()
+    {
+        Plantas temporal=new Plantas();
+        String nombre="";
+        int img=1;
+        if(pila)
+        {
+            for(int i=1;i<(tamaño+1);i++)
+            {
+                this.control=i;
+                objeto n=new objeto();
+                n.setPersonaje(temporal.getNuevo());
+                p.Insertar(n);
+            }
+            
+        }
+        else
+        {
+            
+        }
     }
 
 

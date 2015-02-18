@@ -25,6 +25,8 @@ public class table extends javax.swing.JInternalFrame {
     picola cola=new picola();
     Lista_Doble plantas=new Lista_Doble();
     Lista_Doble zombies=new Lista_Doble();
+    Lista_Doble usuarioP=new Lista_Doble();
+    Lista_Doble usuarioZ=new Lista_Doble();
     
     public void cargarPaneles()
     {
@@ -32,6 +34,34 @@ public class table extends javax.swing.JInternalFrame {
         this.scrollZombies.add(cola);
     }
     
+    public void setListas(Lista_Doble plan,Lista_Doble zombie)
+    {
+        this.plantas=plan;
+        this.zombies=zombie;
+    }
+    
+    public int obtenerCantidad(boolean uPlantas)
+    {
+        Lista_Doble temporal=new Lista_Doble();
+        int numero=0;
+        if(uPlantas)
+        {
+            temporal=usuarioP;
+        }
+        else
+        {
+            temporal=usuarioZ;
+        }
+        temporal.ExtraerInicio();
+        numero=(Integer)temporal.ExtraerInicio();
+        return numero;
+    }
+    
+    public void crearPaneles()
+    {
+        pila.setLista(plantas, true,obtenerCantidad(true));
+        cola.setLista(zombies, false,obtenerCantidad(false));
+    }
     
     
     

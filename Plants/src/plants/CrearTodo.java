@@ -119,6 +119,7 @@ public class CrearTodo extends javax.swing.JFrame {
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         tablero tb=new tablero();
         tb.CargarListas(crearPlantas.getLista(), crearZombies.getLista(), usuarioPlantas, usuarioZombies);
+        tb.show();
         this.dispose();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
