@@ -50,6 +50,8 @@ public class objeto extends javax.swing.JPanel {
         this.per=nuevo;
     }
     
+    
+    
     public void cambiarImagen()
     {
         String path="../imagenes/"+tipo+"/"+String.valueOf(img)+".png";
@@ -57,6 +59,14 @@ public class objeto extends javax.swing.JPanel {
         Image imgEscalada = imgIcon.getImage().getScaledInstance(75,75, Image.SCALE_SMOOTH);
         Icon iconoEscalado = new ImageIcon(imgEscalada);
         lbImagen.setIcon(iconoEscalado);
+    }
+    
+    public void crear()
+    {
+        setImg(per.getImagen());
+        setTipo(per.getTipo());
+        lbNombre.setText(per.getNombre());
+        cambiarImagen();
     }
     
     

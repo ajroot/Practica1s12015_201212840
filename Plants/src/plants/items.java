@@ -170,6 +170,8 @@ public class items extends javax.swing.JFrame {
         {
             cantidad=Integer.valueOf(this.Cant.getText());
             nombreJugador=nombretxt.getText();
+            //System.out.println(nombreJugador);
+            //System.out.println(cantidad);
             llenarLista();
             this.dispose();
         }
@@ -186,8 +188,8 @@ public class items extends javax.swing.JFrame {
         char car=evt.getKeyChar();
         if((car<'0'||car>'9')) evt.consume();
     }//GEN-LAST:event_CantKeyTyped
-    int cantidad=0;
-    String nombreJugador="";
+    int cantidad;
+    String nombreJugador;
     /**
      * @param args the command line arguments
      */

@@ -226,6 +226,12 @@ public class crearP extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        int a=this.panel2.getComponentCount();
+        lista.Vaciar();
+        for(int i=0;i<a;i++)
+        {
+            lista.InsertarFinal(this.panel2.getComponent(i));
+        }
         /*System.out.println("se vaciará lista");
         lista.Vaciar();
         listaP.Vaciar();
@@ -234,10 +240,10 @@ public class crearP extends javax.swing.JInternalFrame {
         System.out.println("Mostrará lista alrevez");
         lista.MostrarAlrevez();
         System.out.println("mostrará personajes en el panel");*/
-        lista.Vaciar();
-        getPersonajes();
-        panel2.removeAll();
-        this.lugar=0;
+        //lista.Vaciar();
+        //getPersonajes();
+        //panel2.removeAll();
+        //this.lugar=0;
         //this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 

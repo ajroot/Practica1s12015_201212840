@@ -19,7 +19,7 @@ public class table extends javax.swing.JInternalFrame {
      */
     public table() {
         initComponents();
-        cargarPaneles();
+        //cargarPaneles();
     }
     picola pila=new picola();
     picola cola=new picola();
@@ -27,40 +27,56 @@ public class table extends javax.swing.JInternalFrame {
     Lista_Doble zombies=new Lista_Doble();
     Lista_Doble usuarioP=new Lista_Doble();
     Lista_Doble usuarioZ=new Lista_Doble();
-    
+    items uplantas=new items();
+    items uzombies=new items();
     public void cargarPaneles()
     {
         this.scrollPlantas.add(pila);
-        this.scrollZombies.add(cola);
+        crearPaneles();
+        //this.scrollZombies.add(cola);
     }
     
-    public void setListas(Lista_Doble plan,Lista_Doble zombie)
+    public void setListas(Lista_Doble plan,Lista_Doble zombie,Lista_Doble up, Lista_Doble uz,items plantas,items zombies)
     {
         this.plantas=plan;
         this.zombies=zombie;
+        this.usuarioP=up;
+        this.usuarioZ=uz;
+        this.uplantas=plantas;
+        this.uzombies=zombies;
     }
     
     public int obtenerCantidad(boolean uPlantas)
     {
         Lista_Doble temporal=new Lista_Doble();
+       System.out.println("Entro a Obtener cantidad");
         int numero=0;
         if(uPlantas)
         {
+          System.out.println("asigno temporal=usuarioP");
             temporal=usuarioP;
         }
         else
         {
+             System.out.println("asigno temporal=usuarioP");
             temporal=usuarioZ;
         }
-        temporal.ExtraerInicio();
-        numero=(Integer)temporal.ExtraerInicio();
+        //System.out.println(temporal.ExtraerInicio());
+        items a=(items)temporal.ExtraerInicio();
+        numero=a.cantidad;
+        //System.out.println("numero "+numero);
+        //crearPaneles();
         return numero;
     }
     
     public void crearPaneles()
     {
-        pila.setLista(plantas, true,obtenerCantidad(true));
-        cola.setLista(zombies, false,obtenerCantidad(false));
+        /*System.out.println("se cargarán los paneles en el table");
+        System.out.println("cantidad de objetos para la pila"+uplantas.cantidad);
+        System.out.println("Nombre"+uplantas.nombreJugador);*/
+        pila.setLista(plantas, true,uplantas.cantidad);
+        pila.cargarPersonajes();
+        //cola.setLista(zombies, false,obtenerCantidad(false));
     }
     
     
@@ -82,6 +98,11 @@ public class table extends javax.swing.JInternalFrame {
         scrollPlantas = new javax.swing.JScrollPane();
         scrollZombies = new javax.swing.JScrollPane();
 
+        setMaximizable(true);
+        setResizable(true);
+        setTitle("Tablero de Juego");
+        setToolTipText("Juega ");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -96,6 +117,8 @@ public class table extends javax.swing.JInternalFrame {
             .addComponent(scrollPlantas, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)
             .addComponent(scrollZombies)
         );
+
+        getAccessibleContext().setAccessibleDescription("Juega ");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

@@ -13,7 +13,7 @@ package plants.TDA;
 public class cola {
     Lista_Doble cola;
     
-    cola()
+    public cola()
     {
         cola=new Lista_Doble();
     }
@@ -28,7 +28,7 @@ public class cola {
         cola.InsertarInicio(x);
     }
     
-    Object extraer()    
+    public Object extraer()    
     {
        return cola.ExtraerInicio();
     }

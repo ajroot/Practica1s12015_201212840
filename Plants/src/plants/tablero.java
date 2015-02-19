@@ -19,29 +19,35 @@ public class tablero extends javax.swing.JFrame {
      */
     public tablero() {
         initComponents();
-        cargarTablero();
+        //cargarTablero();
     }
     table t=new table();
     Lista_Doble listaPlantas=new Lista_Doble();
     Lista_Doble listaZombies=new Lista_Doble();
     Lista_Doble listaUsuarioPlantas=new Lista_Doble();
     Lista_Doble listaUsuarioZombies=new Lista_Doble();
-    
+    items uplantas=new items();
+    items uzombies=new items();
     
     table tabler=new table();
     public void cargarTablero()
     {
-        tabler.setListas(listaPlantas, listaZombies);
-        escritorio.add(tabler);
+        tabler.setListas(listaPlantas, listaZombies,listaUsuarioPlantas,listaUsuarioZombies,uplantas,uzombies);
+        tabler.cargarPaneles();
         tabler.show();
+        escritorio.add(tabler);
+        
     }
     
-    public void CargarListas(Lista_Doble lp,Lista_Doble lz,Lista_Doble ljp,Lista_Doble ljz)
+    public void CargarListas(Lista_Doble lp,Lista_Doble lz,Lista_Doble ljp,Lista_Doble ljz,items plantas,items zombies)
     {
         this.listaPlantas=lp;
         this.listaZombies=lz;
         this.listaUsuarioPlantas=ljp;
         this.listaUsuarioZombies=ljz;
+        this.uplantas=plantas;
+        this.uzombies=zombies;
+        //listaPlantas.ExtraerInicio();
     }
     
     
@@ -78,7 +84,10 @@ public class tablero extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setTitle("Plants Vs Zombies");
+        setMinimumSize(new java.awt.Dimension(800, 800));
+        setPreferredSize(new java.awt.Dimension(800, 800));
 
         jMenu1.setText("File");
 
@@ -106,11 +115,11 @@ public class tablero extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 526, Short.MAX_VALUE)
+            .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 572, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE)
+            .addComponent(escritorio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE)
         );
 
         pack();

@@ -61,8 +61,14 @@ public class Lista_Doble {
     
     public Object ExtraerInicio()
     {
-        Object devolver=inicio.getObjeto();
-        Nodo temporal=inicio.getSiguiente();
+        Object devolver=null;//=inicio.getObjeto();
+        Nodo temporal;//=inicio.getSiguiente();
+        if(!esVacia())
+        {
+            
+        devolver=inicio.getObjeto();
+        temporal=inicio.getSiguiente();
+        
         if(temporal==null)
         {
             
@@ -75,13 +81,18 @@ public class Lista_Doble {
             temporal.setAnterior(null);
             inicio=temporal;
         }
+        }
         return devolver;
     }
     
     public Object ExtraerFinal()
     {
-        Object devolver=fin.getObjeto();
-        Nodo temporal=fin.getAnterior();
+        Object devolver=null;//=fin.getObjeto();
+        Nodo temporal;//=fin.getAnterior();
+        if(!esVacia())
+        {
+            devolver=fin.getObjeto();
+            temporal=fin.getAnterior();
         if(temporal==null)
         {
             //temporal.setSiguiente(null);
@@ -91,6 +102,7 @@ public class Lista_Doble {
         {
             temporal.setSiguiente(null);
             fin=temporal;
+        }
         }
         return devolver;
     }
@@ -118,7 +130,7 @@ public class Lista_Doble {
             
         }
     }
-     public void Vaciar()//Recorrer matriz
+    public void Vaciar()//Recorrer matriz
     {
         Nodo temporal;
         while(inicio!=null)
@@ -138,3 +150,27 @@ public class Lista_Doble {
         
     }
 }
+
+
+
+
+
+/*public void Vaciar()//Recorrer matriz
+    {
+        Nodo temporal;
+        while(inicio!=null)
+        {
+            temporal=fin.getAnterior();
+        if(temporal==null)
+        {
+            //temporal.setSiguiente(null);
+            fin=inicio=temporal;
+        }
+        else
+        {
+            temporal.setSiguiente(null);
+            fin=temporal;
+        }
+        }
+        
+    }*/

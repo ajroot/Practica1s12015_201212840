@@ -9,6 +9,7 @@ package plants;
 import java.awt.GridLayout;
 import plants.TDA.Lista_Doble;
 import plants.TDA.Pila;
+import plants.TDA.cola;
 
 /**
  *
@@ -27,9 +28,9 @@ public class picola extends javax.swing.JPanel {
     objeto imagen=new objeto();
     Lista_Doble lista=new Lista_Doble();
     Pila p=new Pila();
-    Cola c=new Cola();
+    cola c=new cola();
     boolean pila=false;
-    int tamaño=1;
+    int tamano=1;
     int control=0;
     
     public void agregar()//Lista_Doble list)
@@ -41,30 +42,62 @@ public class picola extends javax.swing.JPanel {
     }
     public void setLista(Lista_Doble list,boolean Plants,int tam)
     {
+        
         this.pila=Plants;
+        System.out.println(pila);
         this.lista=list;
-        this.tamaño=tam;
+        System.out.println(lista);
+        this.tamano=tam;
+        System.out.println(tam);
     }
     
     public void cargarPersonajes()
     {
+        System.out.println("cargar personajes");
         Plantas temporal=new Plantas();
         String nombre="";
         int img=1;
+        this.setLayout(null);
+        this.setLayout(new GridLayout(tamano,1));
+        System.out.println("cantidad de objetos en la pila"+tamano);
         if(pila)
         {
-            for(int i=1;i<(tamaño+1);i++)
+            for(int i=1;i<(tamano+1);i++)
             {
                 this.control=i;
                 objeto n=new objeto();
                 n.setPersonaje(temporal.getNuevo());
                 p.Insertar(n);
+                this.updateUI();
+                this.add(n);
             }
             
         }
         else
         {
-            
+            for(int i=1;i<(tamano+1);i++)
+            {
+                this.control=i;
+                objeto n=new objeto();
+                n.setPersonaje(temporal.getNuevo());
+                n.crear();
+                c.insertar(n);
+                this.updateUI();
+                this.add(n);
+            }
+        }
+    }
+    
+    public void cargar()
+    {
+        if(pila)
+        {
+            Pila temporal=new Pila();
+            temporal=p;
+        }else
+        {
+            cola temporal=new cola();
+            temporal=c;
         }
     }
 
