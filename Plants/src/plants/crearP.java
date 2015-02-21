@@ -205,7 +205,7 @@ public class crearP extends javax.swing.JInternalFrame {
         Plantas nuevoPanel=new Plantas();
         lugar++;
         nuevoPanel.setNuevo(p.Cargar());
-        System.out.println(nuevoPanel.tipo);
+        //System.out.println(nuevoPanel.tipo);
         lista.InsertarFinal(nuevoPanel);
 
         listaP=lista;

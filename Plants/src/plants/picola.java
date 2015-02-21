@@ -44,21 +44,27 @@ public class picola extends javax.swing.JPanel {
     {
         
         this.pila=Plants;
-        System.out.println(pila);
+        //System.out.println(pila);
         this.lista=list;
-        System.out.println(lista);
+        //System.out.println(lista);
         this.tamano=tam;
-        System.out.println(tam);
+        //System.out.println(tam);
     }
     
     public void cargarPersonajes()
     {
-        System.out.println("cargar personajes");
+        //System.out.println("cargar personajes");
         Plantas temporal=new Plantas();
         String nombre="";
         int img=1;
         this.setLayout(null);
-        this.setLayout(new GridLayout(tamano,1));
+        this.setLayout(new GridLayout(1,tamano));//tamano,1));
+        /*objeto n=new objeto();
+                n.setPersonaje(temporal.getNuevo(),pila);
+                p.Insertar(n);
+                this.add(n);
+                this.updateUI();*/
+                
         System.out.println("cantidad de objetos en la pila"+tamano);
         if(pila)
         {
@@ -66,7 +72,7 @@ public class picola extends javax.swing.JPanel {
             {
                 this.control=i;
                 objeto n=new objeto();
-                n.setPersonaje(temporal.getNuevo());
+                n.setPersonaje(temporal.getNuevo(),pila);
                 p.Insertar(n);
                 this.updateUI();
                 this.add(n);
@@ -79,13 +85,14 @@ public class picola extends javax.swing.JPanel {
             {
                 this.control=i;
                 objeto n=new objeto();
-                n.setPersonaje(temporal.getNuevo());
+                n.setPersonaje(temporal.getNuevo(),pila);
                 n.crear();
                 c.insertar(n);
                 this.updateUI();
                 this.add(n);
             }
         }
+                
     }
     
     public void cargar()
@@ -100,6 +107,11 @@ public class picola extends javax.swing.JPanel {
             temporal=c;
         }
     }
+    
+    public void obtenerRandom(Plantas z)
+    {
+        
+    }
 
 
     /**
@@ -111,19 +123,30 @@ public class picola extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+
+        jLabel1.setText("pila");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 99, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jLabel1)
+                .addContainerGap(49, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(138, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

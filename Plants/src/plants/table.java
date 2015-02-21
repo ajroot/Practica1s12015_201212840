@@ -6,6 +6,9 @@
 
 package plants;
 
+import java.awt.Dimension;
+import java.awt.GridLayout;
+import javax.swing.JPanel;
 import plants.TDA.Lista_Doble;
 
 /**
@@ -31,7 +34,7 @@ public class table extends javax.swing.JInternalFrame {
     items uzombies=new items();
     public void cargarPaneles()
     {
-        this.scrollPlantas.add(pila);
+        
         crearPaneles();
         //this.scrollZombies.add(cola);
     }
@@ -49,16 +52,16 @@ public class table extends javax.swing.JInternalFrame {
     public int obtenerCantidad(boolean uPlantas)
     {
         Lista_Doble temporal=new Lista_Doble();
-       System.out.println("Entro a Obtener cantidad");
+       //System.out.println("Entro a Obtener cantidad");
         int numero=0;
         if(uPlantas)
         {
-          System.out.println("asigno temporal=usuarioP");
+         // System.out.println("asigno temporal=usuarioP");
             temporal=usuarioP;
         }
         else
         {
-             System.out.println("asigno temporal=usuarioP");
+           //  System.out.println("asigno temporal=usuarioP");
             temporal=usuarioZ;
         }
         //System.out.println(temporal.ExtraerInicio());
@@ -74,12 +77,44 @@ public class table extends javax.swing.JInternalFrame {
         /*System.out.println("se cargarán los paneles en el table");
         System.out.println("cantidad de objetos para la pila"+uplantas.cantidad);
         System.out.println("Nombre"+uplantas.nombreJugador);*/
+        this.lblPrueba.setText("entro");
+        //this.add(pila);
         pila.setLista(plantas, true,uplantas.cantidad);
         pila.cargarPersonajes();
+        //this.panelPila=pila;
+        this.panelPila.removeAll();
+        this.panelPila.setLayout(null);
+        this.panelPila.setLayout(new GridLayout(4,4));
+        
+        //this.panelPila.add(pila,1,1);
+        this.panelPila.add(pila);
+        this.panelPila.updateUI();
+        //cargarPanel(panelPila,pila);
+        
+        //this.scrollPlantas.add(pila);
+        this.pack();
         //cola.setLista(zombies, false,obtenerCantidad(false));
     }
     
-    
+    private void cargarPanel(JPanel contenedor, JPanel contenedorHijo)
+   {
+       // Se definen los tamanos iniciales de cada uno
+       final Dimension tamanoJFrameInicial = this.getSize(); // JFrame padre
+       final Dimension tamanoContenedorPrincipalInicial = contenedor.getPreferredSize().getSize(); // Contenedor que albergara al otro
+       final Dimension tamanoFormularioInicial = contenedorHijo.getPreferredSize().getSize(); // El hijo, el JPanel donde será puesto
+ 
+       // Borramos cualquier cosa que pueda haber en el contenedor padre
+       contenedor.removeAll();
+ 
+       // Tamano del contenedor que va a tener a los q se le meta
+       Dimension nuevoTamano = new Dimension(tamanoFormularioInicial.width, tamanoFormularioInicial.height); // Le ponemos el tamano de lo que albergara y la altura correspondiente
+       contenedor.setPreferredSize(nuevoTamano); // Se le asigna ese nuevo tamaño
+ 
+       // Anadimos al contenedor el JPanel llamado al contenedor y lo ponemos visible (por defecto no son visibles, hay que ponerlos)
+       contenedor.add(contenedorHijo).setVisible(true);
+ 
+       this.pack(); // Hacemos esto para que se reestructure el JFrame principal y autoajuste su tamano a lo que contiene dentro
+   }
     
     
     
@@ -96,35 +131,73 @@ public class table extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         scrollPlantas = new javax.swing.JScrollPane();
+        panelPila = new javax.swing.JPanel();
+        lblPrueba = new javax.swing.JLabel();
         scrollZombies = new javax.swing.JScrollPane();
+        jPanel2 = new javax.swing.JPanel();
 
         setMaximizable(true);
         setResizable(true);
         setTitle("Tablero de Juego");
         setToolTipText("Juega ");
 
+        lblPrueba.setText("Lable Prueba");
+
+        javax.swing.GroupLayout panelPilaLayout = new javax.swing.GroupLayout(panelPila);
+        panelPila.setLayout(panelPilaLayout);
+        panelPilaLayout.setHorizontalGroup(
+            panelPilaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPilaLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(lblPrueba)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelPilaLayout.setVerticalGroup(
+            panelPilaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPilaLayout.createSequentialGroup()
+                .addGap(90, 90, 90)
+                .addComponent(lblPrueba)
+                .addContainerGap(239, Short.MAX_VALUE))
+        );
+
+        scrollPlantas.setViewportView(panelPila);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 120, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 345, Short.MAX_VALUE)
+        );
+
+        scrollZombies.setViewportView(jPanel2);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(scrollPlantas, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 361, Short.MAX_VALUE)
-                .addComponent(scrollZombies, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(scrollPlantas, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 323, Short.MAX_VALUE)
+                .addComponent(scrollZombies, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(scrollPlantas, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)
+            .addComponent(scrollPlantas)
             .addComponent(scrollZombies)
         );
-
-        getAccessibleContext().setAccessibleDescription("Juega ");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel lblPrueba;
+    private javax.swing.JPanel panelPila;
     private javax.swing.JScrollPane scrollPlantas;
     private javax.swing.JScrollPane scrollZombies;
     // End of variables declaration//GEN-END:variables

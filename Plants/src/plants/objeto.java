@@ -45,9 +45,23 @@ public class objeto extends javax.swing.JPanel {
         this.lbNombre.setText(nombre);
     }
     
-    public void setPersonaje(personaje nuevo)
+    public void setPersonaje(personaje nuevo,boolean pila)
     {
         this.per=nuevo;
+        setNombre(per.getNombre());
+        if(pila)
+        {
+            setTipo("Plantas");
+        }
+        else
+        {
+            setTipo("Zombies");
+        }
+        this.setImg(per.getImagen());
+        //cambiarImagen();
+        System.out.println("Nombre"+per.getNombre());
+        System.out.println("Imagen"+per.getImagen());
+        System.out.println("tipo"+per.getTipo());
     }
     
     
@@ -55,6 +69,7 @@ public class objeto extends javax.swing.JPanel {
     public void cambiarImagen()
     {
         String path="../imagenes/"+tipo+"/"+String.valueOf(img)+".png";
+        System.out.println(path);
         ImageIcon imgIcon = new ImageIcon(getClass().getResource(path));
         Image imgEscalada = imgIcon.getImage().getScaledInstance(75,75, Image.SCALE_SMOOTH);
         Icon iconoEscalado = new ImageIcon(imgEscalada);
@@ -63,10 +78,13 @@ public class objeto extends javax.swing.JPanel {
     
     public void crear()
     {
-        setImg(per.getImagen());
+        /*setImg(per.getImagen());
         setTipo(per.getTipo());
-        lbNombre.setText(per.getNombre());
-        cambiarImagen();
+        //lbNombre.setText(per.getNombre());
+        //cambiarImagen();*/
+        System.out.println("Nombre"+per.getNombre());
+        System.out.println("Imagen"+per.getImagen());
+        System.out.println("tipo"+per.getTipo());
     }
     
     
@@ -82,8 +100,6 @@ public class objeto extends javax.swing.JPanel {
 
         lbImagen = new javax.swing.JLabel();
         lbNombre = new javax.swing.JLabel();
-
-        lbImagen.setText("objeto");
 
         lbNombre.setText("Nombre");
 
