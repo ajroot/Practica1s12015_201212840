@@ -23,6 +23,7 @@ public class crearP extends javax.swing.JInternalFrame {
      */
     public crearP() {
              initComponents();
+             btnListo.setEnabled(false);
         jPanel1.setLayout(new GridLayout());
         cargarPanel(jPanel1,p);
     }
@@ -54,10 +55,7 @@ public class crearP extends javax.swing.JInternalFrame {
         for(int i=0;i<a;i++)
         {
             ax=(Plantas)panel2.getComponent(i);
-            //System.out.println("se insertará"+ax.Nombre());
             lista.InsertarFinal(ax);
-            
-            
         }
         
     }
@@ -96,8 +94,8 @@ public class crearP extends javax.swing.JInternalFrame {
         label1 = new javax.swing.JLabel();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnCargar = new javax.swing.JButton();
+        btnListo = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         panel2 = new javax.swing.JPanel();
 
@@ -122,17 +120,17 @@ public class crearP extends javax.swing.JInternalFrame {
             .addGap(0, 145, Short.MAX_VALUE)
         );
 
-        jButton1.setText("Cargar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnCargar.setText("Cargar");
+        btnCargar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnCargarActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Listo");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnListo.setText("Listo");
+        btnListo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnListoActionPerformed(evt);
             }
         });
 
@@ -164,10 +162,10 @@ public class crearP extends javax.swing.JInternalFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addGap(0, 0, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnCargar, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnListo, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(0, 0, Short.MAX_VALUE))
                         .addGroup(layout.createSequentialGroup()
                             .addGap(112, 112, 112)
@@ -193,59 +191,38 @@ public class crearP extends javax.swing.JInternalFrame {
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton1)
-                        .addComponent(jButton3))
+                        .addComponent(btnCargar)
+                        .addComponent(btnListo))
                     .addContainerGap(295, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    Lista_Doble pp=new Lista_Doble();
+    
+    private void btnCargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarActionPerformed
         Plantas nuevoPanel=new Plantas();
         lugar++;
         nuevoPanel.setNuevo(p.Cargar());
-        //System.out.println(nuevoPanel.tipo);
-        lista.InsertarFinal(nuevoPanel);
-
-        listaP=lista;
-
         panel2.setLayout(null);
         panel2.setLayout(new GridLayout(lugar,1));
-        while(!lista.esVacia())
-        {
-
-            nuevoPanel=(Plantas)listaP.ExtraerInicio();
-            nuevoPanel.updateUI();
-            panel2.add (nuevoPanel);
-        }
-        //scrollpanel.setViewportView(agregar);
+        panel2.add (nuevoPanel);//nuevoPanel,1,contador);
         cargarPanel(jPanel1,p);
-        //scrollpanel.updateUI();
+        this.btnListo.setEnabled(true);
         this.pack();
-    }//GEN-LAST:event_jButton1ActionPerformed
+        
+    }//GEN-LAST:event_btnCargarActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnListoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListoActionPerformed
         int a=this.panel2.getComponentCount();
-        lista.Vaciar();
+        
         for(int i=0;i<a;i++)
         {
-            lista.InsertarFinal(this.panel2.getComponent(i));
+            Plantas ax=(Plantas)this.panel2.getComponent(i);
+            ax.Cargar();
+            lista.InsertarFinal(ax);
         }
-        /*System.out.println("se vaciará lista");
-        lista.Vaciar();
-        listaP.Vaciar();
-        System.out.println("Mostará lista al derecho");
-        lista.Mostrar();
-        System.out.println("Mostrará lista alrevez");
-        lista.MostrarAlrevez();
-        System.out.println("mostrará personajes en el panel");*/
-        //lista.Vaciar();
-        //getPersonajes();
-        //panel2.removeAll();
-        //this.lugar=0;
-        //this.dispose();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btnListoActionPerformed
 
     public Lista_Doble getLista()
     {
@@ -253,8 +230,8 @@ public class crearP extends javax.swing.JInternalFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btnCargar;
+    private javax.swing.JButton btnListo;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

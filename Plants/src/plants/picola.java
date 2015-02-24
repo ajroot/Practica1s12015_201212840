@@ -15,7 +15,7 @@ import plants.TDA.cola;
  *
  * @author Javier
  */
-public class picola extends javax.swing.JPanel {
+public class picola extends javax.swing.JPanel implements Runnable {
 
     /**
      * Creates new form picola
@@ -31,6 +31,7 @@ public class picola extends javax.swing.JPanel {
     cola c=new cola();
     boolean pila=false;
     int tamano=1;
+    int elementos=0;
     int control=0;
     
     public void agregar()//Lista_Doble list)
@@ -44,52 +45,63 @@ public class picola extends javax.swing.JPanel {
     {
         
         this.pila=Plants;
-        //System.out.println(pila);
         this.lista=list;
-        //System.out.println(lista);
         this.tamano=tam;
-        //System.out.println(tam);
+
     }
     
     public void cargarPersonajes()
     {
         //System.out.println("cargar personajes");
         Plantas temporal=new Plantas();
-        String nombre="";
-        int img=1;
+        Lista_Doble temp=lista;
+        //temporal=(Plantas).ExtraerInicio();
+        //String nombre="";
+        //int img=1;
         this.setLayout(null);
-        this.setLayout(new GridLayout(1,tamano));//tamano,1));
+        this.setLayout(new GridLayout(tamano,1));//tamano,1));
         /*objeto n=new objeto();
                 n.setPersonaje(temporal.getNuevo(),pila);
                 p.Insertar(n);
                 this.add(n);
                 this.updateUI();*/
                 
-        System.out.println("cantidad de objetos en la pila"+tamano);
-        if(pila)
+        //System.out.println("cantidad de objetos en la pila"+tamano);
+       if(pila)
         {
-            for(int i=1;i<(tamano+1);i++)
+            for(int i=0;i<(tamano);i++)
             {
-                this.control=i;
-                objeto n=new objeto();
-                n.setPersonaje(temporal.getNuevo(),pila);
-                p.Insertar(n);
-                this.updateUI();
-                this.add(n);
+                temporal=(Plantas)temp.ExtraerInicio();
+                if(temporal!=null)
+                {
+                    
+                    this.control=i;
+                    objeto n=new objeto();
+                    n.setPersonaje(temporal.getNuevo(),true);
+                    p.Insertar(n);
+                    this.add(n);
+                    this.updateUI();
+                }
+                
+                
             }
             
         }
         else
         {
-            for(int i=1;i<(tamano+1);i++)
+            for(int i=0;i<(tamano+1);i++)
             {
-                this.control=i;
+                temporal=(Plantas)temp.ExtraerInicio();
+                if(temporal!=null)
+                {
+                    this.control=i;
                 objeto n=new objeto();
-                n.setPersonaje(temporal.getNuevo(),pila);
+                n.setPersonaje(temporal.getNuevo(),false);
                 n.crear();
                 c.insertar(n);
-                this.updateUI();
+                //this.updateUI();
                 this.add(n);
+                }
             }
         }
                 
@@ -123,30 +135,24 @@ public class picola extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-
-        jLabel1.setText("pila");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jLabel1)
-                .addContainerGap(49, Short.MAX_VALUE))
+            .addGap(0, 99, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(138, Short.MAX_VALUE))
+            .addGap(0, 300, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void run() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

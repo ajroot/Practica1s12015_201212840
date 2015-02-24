@@ -12,7 +12,7 @@ import plants.TDA.Lista_Doble;
  *
  * @author Javier
  */
-public class tablero extends javax.swing.JFrame {
+public class tablero extends javax.swing.JFrame implements Runnable{
 
     /**
      * Creates new form tablero
@@ -170,4 +170,9 @@ public class tablero extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuBar menuTablero;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void run() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

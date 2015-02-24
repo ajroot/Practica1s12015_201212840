@@ -22,7 +22,7 @@ public class objeto extends javax.swing.JPanel {
     public objeto() {
         initComponents();
     }
-    int img=1;
+    int img;
     String tipo;
     personaje per=new personaje();
     
@@ -47,8 +47,8 @@ public class objeto extends javax.swing.JPanel {
     
     public void setPersonaje(personaje nuevo,boolean pila)
     {
-        this.per=nuevo;
-        setNombre(per.getNombre());
+        //this.per=nuevo;
+        setNombre(nuevo.getNombre());
         if(pila)
         {
             setTipo("Plantas");
@@ -57,11 +57,15 @@ public class objeto extends javax.swing.JPanel {
         {
             setTipo("Zombies");
         }
-        this.setImg(per.getImagen());
-        //cambiarImagen();
-        System.out.println("Nombre"+per.getNombre());
-        System.out.println("Imagen"+per.getImagen());
-        System.out.println("tipo"+per.getTipo());
+        this.setImg(nuevo.getImagen());
+        
+        System.out.println(nuevo.getNombre()+":"+nuevo.getImagen());
+        this.img=nuevo.getImagen();
+        System.out.println(nuevo.getNombre()+":"+img);
+        cambiarImagen();
+        //System.out.println("Nombre"+per.getNombre());
+        //System.out.println("Imagen"+per.getImagen());
+        //System.out.println("tipo"+per.getTipo());
     }
     
     
@@ -69,7 +73,7 @@ public class objeto extends javax.swing.JPanel {
     public void cambiarImagen()
     {
         String path="../imagenes/"+tipo+"/"+String.valueOf(img)+".png";
-        System.out.println(path);
+        //System.out.println(path);
         ImageIcon imgIcon = new ImageIcon(getClass().getResource(path));
         Image imgEscalada = imgIcon.getImage().getScaledInstance(75,75, Image.SCALE_SMOOTH);
         Icon iconoEscalado = new ImageIcon(imgEscalada);
@@ -80,11 +84,11 @@ public class objeto extends javax.swing.JPanel {
     {
         /*setImg(per.getImagen());
         setTipo(per.getTipo());
-        //lbNombre.setText(per.getNombre());
-        //cambiarImagen();*/
+        //lbNombre.setText(per.getNombre());*/
+        /*cambiarImagen();
         System.out.println("Nombre"+per.getNombre());
         System.out.println("Imagen"+per.getImagen());
-        System.out.println("tipo"+per.getTipo());
+        System.out.println("tipo"+per.getTipo());*/
     }
     
     
@@ -101,6 +105,7 @@ public class objeto extends javax.swing.JPanel {
         lbImagen = new javax.swing.JLabel();
         lbNombre = new javax.swing.JLabel();
 
+        lbNombre.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
         lbNombre.setText("Nombre");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -111,7 +116,7 @@ public class objeto extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(lbNombre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lbImagen, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE))
-                .addGap(0, 114, Short.MAX_VALUE))
+                .addGap(0, 1, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

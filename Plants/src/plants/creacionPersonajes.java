@@ -230,10 +230,12 @@ public class creacionPersonajes extends javax.swing.JFrame {
         panel2.setLayout(new GridLayout(lugar,1));
         while(!lista.esVacia())
         {   
+            Plantas plant=(Plantas)listaP.ExtraerInicio();
             
-            nuevoPanel=(Plantas)listaP.ExtraerInicio();
-            nuevoPanel.updateUI();
-            panel2.add (nuevoPanel);
+            //nuevoPanel=(Plantas)listaP.ExtraerInicio();
+            //nuevoPanel.updateUI();
+            //panel2.add (nuevoPanel);
+            panel2.add(plant);
         }
         //scrollpanel.setViewportView(agregar);
         cargarPanel(jPanel1,p);
@@ -243,7 +245,7 @@ public class creacionPersonajes extends javax.swing.JFrame {
 
     
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        lista.Vaciar();
+//        lista.Vaciar();
         getPersonajes();
         this.lugar=0;
         this.dispose();

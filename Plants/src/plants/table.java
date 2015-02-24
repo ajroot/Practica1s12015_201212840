@@ -22,7 +22,6 @@ public class table extends javax.swing.JInternalFrame {
      */
     public table() {
         initComponents();
-        //cargarPaneles();
     }
     picola pila=new picola();
     picola cola=new picola();
@@ -34,7 +33,6 @@ public class table extends javax.swing.JInternalFrame {
     items uzombies=new items();
     public void cargarPaneles()
     {
-        
         crearPaneles();
         //this.scrollZombies.add(cola);
     }
@@ -77,17 +75,18 @@ public class table extends javax.swing.JInternalFrame {
         /*System.out.println("se cargarán los paneles en el table");
         System.out.println("cantidad de objetos para la pila"+uplantas.cantidad);
         System.out.println("Nombre"+uplantas.nombreJugador);*/
-        this.lblPrueba.setText("entro");
+        //this.lblPrueba.setText("entro");
         //this.add(pila);
         pila.setLista(plantas, true,uplantas.cantidad);
         pila.cargarPersonajes();
         //this.panelPila=pila;
         this.panelPila.removeAll();
+        this.panelPila.add(pila);
         this.panelPila.setLayout(null);
-        this.panelPila.setLayout(new GridLayout(4,4));
+        this.panelPila.setLayout(new GridLayout(1,1));
         
         //this.panelPila.add(pila,1,1);
-        this.panelPila.add(pila);
+        //this.panelPila.add(pila);
         this.panelPila.updateUI();
         //cargarPanel(panelPila,pila);
         
@@ -96,7 +95,7 @@ public class table extends javax.swing.JInternalFrame {
         //cola.setLista(zombies, false,obtenerCantidad(false));
     }
     
-    private void cargarPanel(JPanel contenedor, JPanel contenedorHijo)
+   /* private void cargarPanel(JPanel contenedor, JPanel contenedorHijo)
    {
        // Se definen los tamanos iniciales de cada uno
        final Dimension tamanoJFrameInicial = this.getSize(); // JFrame padre
@@ -115,7 +114,7 @@ public class table extends javax.swing.JInternalFrame {
  
        this.pack(); // Hacemos esto para que se reestructure el JFrame principal y autoajuste su tamano a lo que contiene dentro
    }
-    
+    */
     
     
     
@@ -132,7 +131,6 @@ public class table extends javax.swing.JInternalFrame {
 
         scrollPlantas = new javax.swing.JScrollPane();
         panelPila = new javax.swing.JPanel();
-        lblPrueba = new javax.swing.JLabel();
         scrollZombies = new javax.swing.JScrollPane();
         jPanel2 = new javax.swing.JPanel();
 
@@ -141,23 +139,15 @@ public class table extends javax.swing.JInternalFrame {
         setTitle("Tablero de Juego");
         setToolTipText("Juega ");
 
-        lblPrueba.setText("Lable Prueba");
-
         javax.swing.GroupLayout panelPilaLayout = new javax.swing.GroupLayout(panelPila);
         panelPila.setLayout(panelPilaLayout);
         panelPilaLayout.setHorizontalGroup(
             panelPilaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelPilaLayout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(lblPrueba)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGap(0, 122, Short.MAX_VALUE)
         );
         panelPilaLayout.setVerticalGroup(
             panelPilaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelPilaLayout.createSequentialGroup()
-                .addGap(90, 90, 90)
-                .addComponent(lblPrueba)
-                .addContainerGap(239, Short.MAX_VALUE))
+            .addGap(0, 345, Short.MAX_VALUE)
         );
 
         scrollPlantas.setViewportView(panelPila);
@@ -196,7 +186,6 @@ public class table extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel lblPrueba;
     private javax.swing.JPanel panelPila;
     private javax.swing.JScrollPane scrollPlantas;
     private javax.swing.JScrollPane scrollZombies;

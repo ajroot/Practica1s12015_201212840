@@ -41,7 +41,7 @@ public class items extends javax.swing.JFrame {
     Lista_Doble lista=new Lista_Doble();
     public void llenarLista()
     {
-        lista.Vaciar();
+///        lista.Vaciar();
         lista.InsertarFinal(nombreJugador);
         lista.InsertarFinal(cantidad);
         lista.InsertarFinal(tipo());

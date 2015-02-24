@@ -39,6 +39,7 @@ public class Plantas extends javax.swing.JPanel {
         numeroPersonajes.setText(String.valueOf(entrada.getCanitdad()));
         this.tipo=String.valueOf(entrada.getTipo());
         cambiarImagen(entrada.getImagen());
+        setImagen(entrada.getImagen());
         boolean at=false;
         if(entrada.isAtaqueDirecto())
         {
@@ -58,10 +59,11 @@ public class Plantas extends javax.swing.JPanel {
     
     public void GuardarDatos()
     {
+        nuevo= new personaje();
         nuevo.setAtaqueDirecto(this.rbtnDirecto.isSelected());
         nuevo.setCanitdad(Integer.valueOf(this.numeroPersonajes.getText()));
         nuevo.setNombre(this.nombrePersonajes.getText());
-        nuevo.setImagen(imagen);
+        nuevo.setImagen(getImagen());
         nuevo.setPuntos(Integer.valueOf(numeroAtaque.getText()));
         nuevo.setTipo(this.tipo);
     }
@@ -266,13 +268,14 @@ public class Plantas extends javax.swing.JPanel {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if(this.imagen==1)
         {
-            imagen=1;
+            this.imagen=1;
         }
         else
         {
-            imagen--;
+            this.imagen--;
         }
        cambiarImagen(imagen);
+       //setImagen(imagen);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -284,23 +287,33 @@ public class Plantas extends javax.swing.JPanel {
        {
            this.imagen++;
        }
-      cambiarImagen(imagen);        
+      cambiarImagen(imagen);      
+      //setImagen(imagen);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     public void cambiarImagen(int img)
     {
+        setImagen(img);
         String path="../imagenes/"+tipo+"/"+String.valueOf(img)+".png";
         ImageIcon imgIcon = new ImageIcon(getClass().getResource(path));
         Image imgEscalada = imgIcon.getImage().getScaledInstance(75,75, Image.SCALE_SMOOTH);
         Icon iconoEscalado = new ImageIcon(imgEscalada);
         jLabel1.setIcon(iconoEscalado);
+        
     }
     public void setTipo(String ti)
     {
         this.tipo=ti;
     }
     
-    
+    public void setImagen(int imagen)
+    {
+        this.imagen=imagen;
+    }
+    public int getImagen()
+    {
+        return this.imagen;
+    }
     
     
     

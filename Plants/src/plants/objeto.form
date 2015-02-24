@@ -21,7 +21,7 @@
                   <Component id="lbNombre" alignment="0" max="32767" attributes="0"/>
                   <Component id="lbImagen" alignment="0" pref="87" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace min="0" pref="114" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="1" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -41,6 +41,9 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lbNombre">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Cantarell" size="15" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Nombre"/>
       </Properties>
     </Component>

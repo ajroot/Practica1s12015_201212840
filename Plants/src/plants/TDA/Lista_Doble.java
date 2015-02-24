@@ -6,8 +6,6 @@
 
 package plants.TDA;
 
-import plants.Plantas;
-
 /**
  *
  * @author Javier
@@ -65,7 +63,9 @@ public class Lista_Doble {
         Nodo temporal=null;
         if(inicio!=null)
         {
+            //temporal.setSiguiente(null);
             devolver=inicio.getObjeto();
+            //System.out.println("Se obtuvo "+devolver);
             
             if(fin!=inicio)
             {
@@ -88,11 +88,14 @@ public class Lista_Doble {
         Nodo temporal=null;
         if(fin!=null)
         {
+            //temporal.setSiguiente(null);
             devolver=fin.getObjeto();
+            //System.out.println("Se obtuvo "+devolver);
             
             if(fin!=inicio)
             {
                 temporal=fin.getAnterior();
+                //System.out.println("Temporal es igual a "+temporal);
                 temporal.setSiguiente(null);
                 fin=temporal;
             }
@@ -128,25 +131,6 @@ public class Lista_Doble {
             temp=temp.getAnterior();
             
         }
-    }
-    public void Vaciar()//Recorrer matriz
-    {
-        Nodo temporal;
-        while(inicio!=null)
-        {
-            temporal=fin.getAnterior();
-        if(temporal==null)
-        {
-            //temporal.setSiguiente(null);
-            fin=inicio=temporal;
-        }
-        else
-        {
-            temporal.setSiguiente(null);
-            fin=temporal;
-        }
-        }
-        
     }
     
     public void Eliminar(Object comparar)
@@ -186,7 +170,50 @@ public class Lista_Doble {
         }
     }
     
+    
+    public Object EliminarPosicion(int numero)
+    {
+        int pos=0;
+        Nodo temp=inicio;
+        Object comparar;
+        Object Retornar=null;
+        while(temp!=null)
+        {
+            //aqui mostrara independiente de que objeto sea
+            pos++;
+            if(numero==pos)
+            {
+                comparar=temp.getObjeto();
+                if((inicio.getObjeto()!=comparar)&&(fin.getObjeto()!=comparar))
+                {
+                    Retornar=comparar;
+                    temp.getSiguiente().setAnterior(temp.getAnterior());
+                    temp.getAnterior().setSiguiente(temp.getSiguiente());
+                }
+                else
+                {
+                    if(comparar==inicio.getObjeto())
+                    {
+                        Retornar=comparar;
+                        temp.getSiguiente().setAnterior(null);
+                        inicio=temp.getSiguiente();
+                    }
+                    else
+                    {
+                        Retornar=comparar;
+                       temp.getAnterior().setSiguiente(null);
+                       fin=temp.getAnterior();
+                    }
+                }
+                {
+                    
+                }
+                
+            }
+            
+            temp=temp.getSiguiente();
+            
+        }
+        return Retornar;
+    }
 }
-
-
-
