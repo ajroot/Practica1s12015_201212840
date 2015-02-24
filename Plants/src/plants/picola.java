@@ -34,6 +34,8 @@ public class picola extends javax.swing.JPanel implements Runnable {
     int tamano=1;
     int elementos=0;
     int control=0;
+    int controlPlantas=0;
+    int controlZombies=0;
     
     public void agregar()//Lista_Doble list)
     {
@@ -62,11 +64,10 @@ public class picola extends javax.swing.JPanel implements Runnable {
         {
             for(int i=0;i<(tamano);i++)
             {
-                //temporal=(Plantas)temp.ExtraerInicio();
-                //if(temporal!=null)
                 {
                     
-                    this.control=i;
+                    //this.control=i;
+                    
                     objeto n=new objeto();
                     te=personajeRandom();
                     if(te!=null)
@@ -75,6 +76,7 @@ public class picola extends javax.swing.JPanel implements Runnable {
                     p.Insertar(n);
                     this.add(n);
                     this.updateUI();
+                    controlPlantas++;
                     }
                 }
                 
@@ -86,41 +88,28 @@ public class picola extends javax.swing.JPanel implements Runnable {
         {
             for(int i=0;i<(tamano+1);i++)
             {
-                temporal=(Plantas)temp.ExtraerInicio();
-                if(temporal!=null)
-                {
+                //temporal=(Plantas)temp.ExtraerInicio();
+                
                     this.control=i;
                 objeto n=new objeto();
-                n.setPersonaje(temporal.getNuevo(),false);
-                n.crear();
-                c.insertar(n);
-                //
-                this.add(n);
-                this.updateUI();
+                te=personajeRandom();
+                if(te!=null)
+                {
+                    n.setPersonaje(te,false);
+                    //n.crear();
+                    c.insertar(n);
+                    this.add(n);
+                    this.updateUI();
+                    controlZombies++;
                 }
+                
+                
             }
         }
                 
     }
     
-    /*public void cargar()
-    {
-        if(pila)
-        {
-            Pila temporal=new Pila();
-            temporal=p;
-        }else
-        {
-            cola temporal=new cola();
-            temporal=c;
-        }
-    }
-    
-    public void obtenerRandom(Plantas z)
-    {
-        
-    }
-    */
+ 
     public personaje personajeRandom()
     {
         personaje devolver=null;
@@ -134,12 +123,9 @@ public class picola extends javax.swing.JPanel implements Runnable {
             {
                 b=(int)(rnd.nextDouble() * (tamanoLista+1));
             }
-            //System.out.println("el tamaño de la lista es: "+tamano);
-            //System.out.println("el random es: "+b);
             te=(Plantas)lista.EliminarPosicion(b);
             if(te!=null)
             {
-                //System.out.println("el nombre del objeto es: "+te.getNuevo().getNombre());
             devolver=te.getNuevo();
             }
             

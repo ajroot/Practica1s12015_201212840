@@ -15,7 +15,7 @@ import plants.TDA.Lista_Doble;
  *
  * @author Javier
  */
-public class table extends javax.swing.JInternalFrame {
+public class table extends javax.swing.JInternalFrame implements Runnable {
 
     /**
      * Creates new form table
@@ -31,38 +31,26 @@ public class table extends javax.swing.JInternalFrame {
     Lista_Doble usuarioZ=new Lista_Doble();
     items uplantas=new items();
     items uzombies=new items();
+    int cantidadPersonajesPlantas=0;
+    int cantidadPersonajesZombies=0;
     public void cargarPaneles()
     {
         crearPaneles();
-        //this.scrollZombies.add(cola);
     }
     
-    public void setListas(Lista_Doble plan,Lista_Doble zombie,Lista_Doble up, Lista_Doble uz,items plantas,items zombies)
+    public void setListas(Lista_Doble plan,Lista_Doble zombie,Lista_Doble up, Lista_Doble uz,items planta,items zombiee)
     {
         this.plantas=plan;
         this.zombies=zombie;
         this.usuarioP=up;
         this.usuarioZ=uz;
-        this.uplantas=plantas;
-        this.uzombies=zombies;
+        this.uplantas=planta;
+        this.uzombies=zombiee;
+        this.cantidadPersonajesPlantas=plantas.tamano();
+        this.cantidadPersonajesZombies=zombies.tamano();
     }
     
-    public int obtenerCantidad(boolean uPlantas)
-    {
-        Lista_Doble temporal=new Lista_Doble();
-        int numero=0;
-        if(uPlantas)
-        {
-            temporal=usuarioP;
-        }
-        else
-        {
-            temporal=usuarioZ;
-        }
-        items a=(items)temporal.ExtraerInicio();
-        numero=a.cantidad;
-        return numero;
-    }
+
     
     public void crearPaneles()
     {
@@ -73,6 +61,15 @@ public class table extends javax.swing.JInternalFrame {
         this.panelPila.setLayout(null);
         this.panelPila.setLayout(new GridLayout(1,1));
         this.panelPila.updateUI();
+        this.pack();
+        
+        cola.setLista(zombies, false, uzombies.cantidad);
+        cola.cargarPersonajes();
+        this.panelCola.removeAll();
+        this.panelCola.add(cola);
+        this.panelCola.setLayout(null);
+        this.panelCola.setLayout(new GridLayout (1,1));
+        this.panelCola.updateUI();
         this.pack();
     }
     
@@ -92,7 +89,7 @@ public class table extends javax.swing.JInternalFrame {
         scrollPlantas = new javax.swing.JScrollPane();
         panelPila = new javax.swing.JPanel();
         scrollZombies = new javax.swing.JScrollPane();
-        jPanel2 = new javax.swing.JPanel();
+        panelCola = new javax.swing.JPanel();
 
         setMaximizable(true);
         setResizable(true);
@@ -112,18 +109,18 @@ public class table extends javax.swing.JInternalFrame {
 
         scrollPlantas.setViewportView(panelPila);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout panelColaLayout = new javax.swing.GroupLayout(panelCola);
+        panelCola.setLayout(panelColaLayout);
+        panelColaLayout.setHorizontalGroup(
+            panelColaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 120, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        panelColaLayout.setVerticalGroup(
+            panelColaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 345, Short.MAX_VALUE)
         );
 
-        scrollZombies.setViewportView(jPanel2);
+        scrollZombies.setViewportView(panelCola);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -145,9 +142,14 @@ public class table extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel panelCola;
     private javax.swing.JPanel panelPila;
     private javax.swing.JScrollPane scrollPlantas;
     private javax.swing.JScrollPane scrollZombies;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void run() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
