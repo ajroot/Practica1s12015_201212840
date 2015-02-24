@@ -25,7 +25,7 @@ public class cola {
     
     public void insertar(Object x)
     {
-        cola.InsertarInicio(x);
+        cola.InsertarFinal(x);
     }
     
     public Object extraer()    

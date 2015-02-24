@@ -32,4 +32,9 @@ public class Pila {
     {
         return pila.esVacia();
     }
+    
+    public int cantidadElementos()
+    {
+        return this.pila.tamano();
+    }
 }

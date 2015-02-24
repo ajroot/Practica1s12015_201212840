@@ -192,17 +192,31 @@ public class Lista_Doble {
                 }
                 else
                 {
-                    if(comparar==inicio.getObjeto())
+                    if(comparar==inicio.getObjeto()&&comparar==fin.getObjeto())
                     {
                         Retornar=comparar;
-                        temp.getSiguiente().setAnterior(null);
-                        inicio=temp.getSiguiente();
+                        //temp.getSiguiente().setAnterior(null);
+                        inicio=fin=null;//=temp.getSiguiente();
                     }
                     else
                     {
-                        Retornar=comparar;
-                       temp.getAnterior().setSiguiente(null);
-                       fin=temp.getAnterior();
+                        if(comparar==inicio.getObjeto())
+                         {
+                            Retornar=comparar;
+                            temp.getSiguiente().setAnterior(null);
+                            inicio=temp.getSiguiente();
+                        }
+                        else
+                        {
+                            if(comparar==fin.getObjeto())
+                            {
+                                Retornar=comparar;
+                           temp.getAnterior().setSiguiente(null);
+                           fin=temp.getAnterior();
+                            }
+                             
+                        }
+                           
                     }
                 }
                 {
@@ -215,5 +229,18 @@ public class Lista_Doble {
             
         }
         return Retornar;
+    }
+    
+    public int tamano()
+    {
+        int a=0;
+        Nodo temp=inicio;
+        while(temp!=null)
+        {
+            a++;
+            temp=temp.getSiguiente();
+        }
+        
+        return a;
     }
 }
