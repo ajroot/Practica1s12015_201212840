@@ -88,22 +88,16 @@ public class picola extends javax.swing.JPanel implements Runnable {
         {
             for(int i=0;i<(tamano+1);i++)
             {
-                //temporal=(Plantas)temp.ExtraerInicio();
-                
-                    this.control=i;
                 objeto n=new objeto();
-                te=personajeRandom();
-                if(te!=null)
-                {
-                    n.setPersonaje(te,false);
-                    //n.crear();
-                    c.insertar(n);
-                    this.add(n);
-                    this.updateUI();
-                    controlZombies++;
-                }
-                
-                
+                    te=personajeRandom();
+                    if(te!=null)
+                    {
+                        n.setPersonaje(te,false);
+                        c.insertar(n);
+                        this.add(n);
+                        this.updateUI();
+                        controlZombies++;
+                    }
             }
         }
                 

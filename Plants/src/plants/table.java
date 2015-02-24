@@ -91,10 +91,13 @@ public class table extends javax.swing.JInternalFrame implements Runnable {
         scrollZombies = new javax.swing.JScrollPane();
         panelCola = new javax.swing.JPanel();
 
+        setBackground(new java.awt.Color(17, 119, 15));
         setMaximizable(true);
         setResizable(true);
         setTitle("Tablero de Juego");
         setToolTipText("Juega ");
+        setOpaque(false);
+        setVisible(true);
 
         javax.swing.GroupLayout panelPilaLayout = new javax.swing.GroupLayout(panelPila);
         panelPila.setLayout(panelPilaLayout);
@@ -128,7 +131,7 @@ public class table extends javax.swing.JInternalFrame implements Runnable {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(scrollPlantas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 316, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 315, Short.MAX_VALUE)
                 .addComponent(scrollZombies, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
