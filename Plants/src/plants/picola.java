@@ -65,9 +65,6 @@ public class picola extends javax.swing.JPanel implements Runnable {
             for(int i=0;i<(tamano);i++)
             {
                 {
-                    
-                    //this.control=i;
-                    
                     objeto n=new objeto();
                     te=personajeRandom();
                     if(te!=null)
@@ -86,7 +83,7 @@ public class picola extends javax.swing.JPanel implements Runnable {
         }
         else
         {
-            for(int i=0;i<(tamano+1);i++)
+            for(int i=0;i<(tamano);i++)
             {
                 objeto n=new objeto();
                     te=personajeRandom();
