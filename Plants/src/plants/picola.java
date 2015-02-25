@@ -136,6 +136,11 @@ public class picola extends javax.swing.JPanel implements Runnable {
     {
         return this.c;
     }
+    
+    public int getTamano()
+    {
+        return this.tamano;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.

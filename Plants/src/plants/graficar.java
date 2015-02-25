@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import plants.TDA.Lista_Doble;
 import plants.TDA.Pila;
+import plants.TDA.cola;
 
 /**
  *
@@ -203,7 +204,7 @@ public class graficar {
     }
     
     
-    public void graficarPila(Pila plantas) throws IOException
+    public void graficarPila(Pila plantas,int tamanoPila) throws IOException
     {
         
                 /*digraph G {
@@ -213,19 +214,28 @@ public class graficar {
                 node0 [label = "<f0> labl |<f1> |<f2> |<f3> |<f4> |<f5> |<f6> | ",height=2.5];
                 }*/
         objeto temp=new objeto();
-//temporal.Insertar(plantas.Extraer());
+
         String texto="digraph G {\n"+
                 "nodesep=0.05;\n"+
                 "rankdir=LR;\n"+
                 "node [shape=record,width=.1,height=.1];\n"+
                 "node0 [label =\"";
         int tam=plantas.cantidadElementos();
-        System.out.println("la pila tiene un tamaño de; "+tam);
+        Pila temporal=new Pila();
+        for(int j=0;j<tam;j++)
+        {
+            temporal.Insertar(plantas.Extraer());
+        }
+        for(int i=tam;i<tamanoPila-1;i++)
+        {
+         texto=texto+"|<f"+tam+">";   
+        }
         for(int i=0;i<tam;i++)
         {
-            temp=(objeto)plantas.Extraer();
-            texto=texto+"<f"+i+">"+temp.getNombre()+"|";
+            temp=(objeto)temporal.Extraer();
+            texto=texto+"|"+"<f"+i+">"+temp.getNombre();
         }
+       
         
         texto=texto+"\",height=2.5];\n" +
                         "}";
@@ -233,7 +243,42 @@ public class graficar {
         graficar("pila");
     }
     
-    
+    public void graficarCola(cola zombies,int tamanoCola) throws IOException
+    {
+        
+                /*digraph G {
+                nodesep=0.05;
+                rankdir=LR;
+                node [shape=record,width=.1,height=.1];
+                node0 [label = "<f0> labl |<f1> |<f2> |<f3> |<f4> |<f5> |<f6> | ",height=2.5];
+                }*/
+        objeto temp=new objeto();
+
+        String texto="digraph g {\n" +
+                "node [shape = record,height=.5];"+
+                "node0 [label =\"";
+        int tam=zombies.getTamano();
+        cola temporal=new cola();
+        /*for(int j=0;j<tam;j++)
+        {
+            temporal.Insertar(plantas.Extraer());
+        }
+        for(int i=tam;i<tamanoPila-1;i++)
+        {
+         texto=texto+"|<f"+tam+">";   
+        }*/
+        for(int i=0;i<tam;i++)
+        {
+            temp=(objeto)zombies.extraer();
+            texto=texto+"|"+"<f"+i+">"+temp.getNombre();
+        }
+       
+        
+        texto=texto+"\",height=1];\n" +
+                        "}";
+        escribirArchivo(texto,"","cola");
+        graficar("cola");
+    }
     public void graficar(String tipo)
     {
         try{

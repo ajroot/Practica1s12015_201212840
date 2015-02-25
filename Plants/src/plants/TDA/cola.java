@@ -32,4 +32,9 @@ public class cola {
     {
        return cola.ExtraerInicio();
     }
+    
+    public int getTamano()
+    {
+        return cola.tamano();
+    }
 }

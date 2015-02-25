@@ -85,6 +85,7 @@ public class tablero extends javax.swing.JFrame implements Runnable{
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
@@ -125,6 +126,15 @@ public class tablero extends javax.swing.JFrame implements Runnable{
             }
         });
         jMenu3.add(jMenuItem6);
+
+        jMenuItem7.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem7.setText("Cola");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem7);
 
         jMenu1.add(jMenu3);
 
@@ -185,11 +195,21 @@ graficar grafico=new graficar();
         // TODO add your handling code here:
         grafico=new graficar();
         try {
-            grafico.graficarPila(tabler.pila.getPila());
+            grafico.graficarPila(tabler.pila.getPila(),tabler.pila.getTamano());
         } catch (IOException ex) {
             Logger.getLogger(tablero.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        // TODO add your handling code here:
+        grafico=new graficar();
+        try {
+            grafico.graficarCola(tabler.cola.getCola(), tabler.cola.getTamano());
+        } catch (IOException ex) {
+            Logger.getLogger(tablero.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -237,6 +257,7 @@ graficar grafico=new graficar();
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuBar menuTablero;
     // End of variables declaration//GEN-END:variables
 
