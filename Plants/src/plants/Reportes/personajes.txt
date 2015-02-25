@@ -1,0 +1,25 @@
+digraph G{ 
+ rankidir = LR;
+ node[shape = record]; 
+ rankidir = UD;
+ {  rank = same; 
+ p1;
+nodob1[label="Puntuacion: 10"];
+nodob2[label="Dispara: false"];
+nodob3[label="Puntos: 10"];
+nodob4[label="Imagen: 1"];
+nodob1 -> nodob2;
+nodob2 -> nodob3;
+nodob3 -> nodob4};
+ {  rank = same; 
+ p123;
+nodoc1[label="Puntuacion: 10"];
+nodoc2[label="Dispara: false"];
+nodoc3[label="Puntos: 10"];
+nodoc4[label="Imagen: 3"];
+nodoc1 -> nodoc2;
+nodoc2 -> nodoc3;
+nodoc3 -> nodoc4};
+personajes->p1;
+p1->p123;
+p123}

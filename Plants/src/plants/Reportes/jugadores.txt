@@ -1,0 +1,27 @@
+digraph G{ 
+ rankidir = LR;
+ node[shape = record]; 
+ rankidir = UD;
+ {  rank = same; 
+ Plantas;
+nodo0 [label="javier"];
+ nodo1 [label="12"];
+nodo2 [label="nuevo
+145"];
+Plantas -> nodo0
+nodo0 -> nodo1;
+nodo1 -> nodo2;
+};{ 
+ rank = same; 
+ Zombis;
+nodos0 [label="erick"];
+ nodos1 [label="14"];
+nodos2 [label="nuevo
+16"];
+Zombis -> nodos0;
+nodos0 -> nodos1;
+nodos1 -> nodos2;
+nodos2 -> nodos3;
+}; Jugador -> Plantas; 
+ Plantas -> Zombis; 
+ } 

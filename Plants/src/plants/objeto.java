@@ -64,6 +64,10 @@ public class objeto extends javax.swing.JPanel {
         cambiarImagen();
     }
     
+    public String getNombre()
+    {
+        return this.lbNombre.getText();
+    }
     
     
     public void cambiarImagen()

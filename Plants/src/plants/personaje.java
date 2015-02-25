@@ -26,6 +26,10 @@ public class personaje {
     {
         this.tipo=tip;
     }
+    public boolean getAtaque()
+    {
+        return this.AtaqueDirecto;
+    }
 
     public String getNombre() {
         return nombre;

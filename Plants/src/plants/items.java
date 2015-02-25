@@ -25,6 +25,7 @@ public class items extends javax.swing.JFrame {
         //setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.nombretxt.setText(nombreJugador);
         this.Cant.setText(String.valueOf(cantidad));
+        this.lblRespuestaNuevo.setEnabled(false);
         
     }
     String tipo()
@@ -41,7 +42,6 @@ public class items extends javax.swing.JFrame {
     Lista_Doble lista=new Lista_Doble();
     public void llenarLista()
     {
-///        lista.Vaciar();
         lista.InsertarFinal(nombreJugador);
         lista.InsertarFinal(cantidad);
         lista.InsertarFinal(tipo());
@@ -52,7 +52,19 @@ public class items extends javax.swing.JFrame {
         return this.lista;
     }
     
-
+    public Lista_Doble getExtras()
+    {
+        return this.Extras;
+    }
+    
+    public String getNombre()
+    {
+        return this.nombreJugador;
+    }
+    public int getCantidad()
+    {
+        return this.cantidad;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -71,6 +83,11 @@ public class items extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         tipotxt = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        lblNuevoCampo = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        lblRespuestaNuevo = new javax.swing.JTextField();
 
         jList1.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -80,6 +97,8 @@ public class items extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jList1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Crea tu usuario");
+        setBackground(new java.awt.Color(51, 204, 0));
 
         jLabel1.setText("Nombre:");
 
@@ -107,6 +126,33 @@ public class items extends javax.swing.JFrame {
 
         tipotxt.setText("Tipo");
 
+        jButton1.setText("Extras");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Nuevo extra:");
+
+        lblNuevoCampo.setForeground(new java.awt.Color(204, 204, 204));
+        lblNuevoCampo.setText("Ingresa tu Nuevo campo");
+        lblNuevoCampo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblNuevoCampoMouseClicked(evt);
+            }
+        });
+
+        jLabel4.setText("Entrada Extra");
+
+        lblRespuestaNuevo.setForeground(new java.awt.Color(204, 204, 204));
+        lblRespuestaNuevo.setText("Ingresa tu respuesta");
+        lblRespuestaNuevo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblRespuestaNuevoMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -116,22 +162,34 @@ public class items extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(18, 18, 18)
-                                .addComponent(nombretxt, javax.swing.GroupLayout.DEFAULT_SIZE, 381, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Cant))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jButton2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton3))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButton1)
+                                    .addComponent(jButton3)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel2))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Cant)
+                                    .addComponent(nombretxt, javax.swing.GroupLayout.DEFAULT_SIZE, 375, Short.MAX_VALUE)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(217, 217, 217)
                         .addComponent(tipotxt)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblNuevoCampo))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblRespuestaNuevo)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -139,15 +197,29 @@ public class items extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(tipotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nombretxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(nombretxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(Cant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel3)
+                        .addGap(33, 33, 33)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(lblRespuestaNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblNuevoCampo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(41, 41, 41)))
+                .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(Cant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3)
                     .addComponent(jButton2))
@@ -170,8 +242,6 @@ public class items extends javax.swing.JFrame {
         {
             cantidad=Integer.valueOf(this.Cant.getText());
             nombreJugador=nombretxt.getText();
-            //System.out.println(nombreJugador);
-            //System.out.println(cantidad);
             llenarLista();
             this.dispose();
         }
@@ -181,6 +251,7 @@ public class items extends javax.swing.JFrame {
     {
         cantidad=0;
         nombreJugador="";
+        this.Extras.vaciar();
     }
     
     
@@ -188,8 +259,28 @@ public class items extends javax.swing.JFrame {
         char car=evt.getKeyChar();
         if((car<'0'||car>'9')) evt.consume();
     }//GEN-LAST:event_CantKeyTyped
+
+    private void lblNuevoCampoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNuevoCampoMouseClicked
+        // TODO add your handling code here:
+        this.lblNuevoCampo.setText("");
+        this.lblRespuestaNuevo.setEnabled(true);
+    }//GEN-LAST:event_lblNuevoCampoMouseClicked
+
+    private void lblRespuestaNuevoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRespuestaNuevoMouseClicked
+        // TODO add your handling code here:
+        this.lblRespuestaNuevo.setText("");
+    }//GEN-LAST:event_lblRespuestaNuevoMouseClicked
+Lista_Doble Extras=new Lista_Doble();
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        String temp=new String();
+        temp=this.lblNuevoCampo.getText()+": \n"+this.lblRespuestaNuevo.getText();
+        Extras.InsertarFinal(temp);
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
     int cantidad;
     String nombreJugador;
+   
     /**
      * @param args the command line arguments
      */
@@ -228,12 +319,17 @@ public class items extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Cant;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JList jList1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField lblNuevoCampo;
+    private javax.swing.JTextField lblRespuestaNuevo;
     private javax.swing.JTextField nombretxt;
     private javax.swing.JLabel tipotxt;
     // End of variables declaration//GEN-END:variables

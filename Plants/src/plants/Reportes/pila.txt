@@ -1,0 +1,6 @@
+digraph G {
+nodesep=0.05;
+rankdir=LR;
+node [shape=record,width=.1,height=.1];
+node0 [label ="<f0>plantas6|<f1>plantas7|<f2>plantas5|<f3>plantas4|<f4>plantas3|<f5>plantas2|<f6>plantas1|",height=2.5];
+}

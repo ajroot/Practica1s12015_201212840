@@ -1,0 +1,15 @@
+digraph G{ 
+ rankidir = LR;
+ node[shape = record]; 
+ rankidir = UD;
+ {  rank = same; 
+ zombies1;
+nodob1[label="Puntuacion: 10"];
+nodob2[label="Dispara: false"];
+nodob3[label="Puntos: 10"];
+nodob4[label="Imagen: 1"];
+nodob1 -> nodob2;
+nodob2 -> nodob3;
+nodob3 -> nodob4};
+personajes->zombies1;
+zombies1}

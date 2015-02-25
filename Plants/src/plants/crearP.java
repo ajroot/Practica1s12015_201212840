@@ -220,12 +220,16 @@ public class crearP extends javax.swing.JInternalFrame {
         {
             Plantas ax=(Plantas)this.panel2.getComponent(i);
             ax.Cargar();
-            lista.InsertarFinal(ax);
+            this.lista.InsertarFinal(ax);
         }
     }//GEN-LAST:event_btnListoActionPerformed
 
     public Lista_Doble getLista()
     {
+        if(lista.esVacia())
+        {
+            System.out.println("esta vacia");
+        }
         return this.lista;
     }
 

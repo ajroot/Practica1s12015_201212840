@@ -243,4 +243,9 @@ public class Lista_Doble {
         
         return a;
     }
+    
+    public void vaciar()
+    {
+        inicio=fin=null;
+    }
 }

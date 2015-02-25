@@ -128,7 +128,14 @@ public class picola extends javax.swing.JPanel implements Runnable {
         return devolver;
     }
     
-
+    public Pila getPila()
+    {
+        return this.p;
+    }
+    public cola getCola()
+    {
+        return this.c;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.

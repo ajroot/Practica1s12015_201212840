@@ -23,12 +23,12 @@ public class Pila {
         pila.InsertarInicio(dato);
     }
     
-    Object Extraer()
+    public Object Extraer()
     {
         return pila.ExtraerInicio();
     }
     
-    boolean vacia()
+    public boolean vacia()
     {
         return pila.esVacia();
     }
