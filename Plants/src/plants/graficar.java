@@ -262,15 +262,17 @@ public class graficar {
         /*for(int j=0;j<tam;j++)
         {
             temporal.Insertar(plantas.Extraer());
-        }
-        for(int i=tam;i<tamanoPila-1;i++)
-        {
-         texto=texto+"|<f"+tam+">";   
         }*/
+        
+        
         for(int i=0;i<tam;i++)
         {
             temp=(objeto)zombies.extraer();
             texto=texto+"|"+"<f"+i+">"+temp.getNombre();
+        }
+        for(int i=tam;i<(tamanoCola-1);i++)
+        {
+         texto=texto+"<f"+tam+">|";   
         }
        
         
@@ -298,6 +300,7 @@ public class graficar {
            
            Runtime rt=Runtime.getRuntime();
            rt.exec(cmd);
+           
         }catch(Exception ex){
             ex.printStackTrace();
         }finally{

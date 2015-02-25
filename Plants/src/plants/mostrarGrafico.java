@@ -71,8 +71,9 @@ public class mostrarGrafico extends javax.swing.JInternalFrame {
 
 public void cambiarImagen(String img)
     {
+        img="jugadores";
         
-        String path="C:\\Users\\javier\\Documents\\1semestre 2015\\edd\\Practica1s12015_201212840\\Plants\\src\\plants\\Reportes\\"+img+".png";
+        String path="C:\\Users\\javier\\Documents\\1semestre 2015\\edd\\Practica1s12015_201212840\\Plants\\src\\plants\\Reportes"+img+".png";
         ImageIcon imgIcon = new ImageIcon(getClass().getResource(path));
         Image imgEscalada = imgIcon.getImage().getScaledInstance(75,75, Image.SCALE_SMOOTH);
         Icon iconoEscalado = new ImageIcon(imgEscalada);

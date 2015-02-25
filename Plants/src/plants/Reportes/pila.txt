@@ -2,5 +2,5 @@ digraph G {
 nodesep=0.05;
 rankdir=LR;
 node [shape=record,width=.1,height=.1];
-node0 [label ="|<f6>|<f6>|<f6>|<f6>|<f6>|<f0>plantas1234|<f1>plantas123456|<f2>plantas12345|<f3>plantas12|<f4>plantas123|<f5>plantas1",height=2.5];
+node0 [label ="|<f7>|<f7>|<f7>|<f7>|<f0>plantas2|<f1>plantas6|<f2>plantas1|<f3>plantas5|<f4>plantas7|<f5>plantas4|<f6>plantas3",height=2.5];
 }
