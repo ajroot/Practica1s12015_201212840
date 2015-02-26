@@ -98,14 +98,19 @@ public class crearP extends javax.swing.JInternalFrame {
         btnListo = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         panel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
         setMinimumSize(new java.awt.Dimension(460, 460));
         setPreferredSize(new java.awt.Dimension(552, 531));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        label1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         label1.setText("Crea tus ");
+        getContentPane().add(label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 490, -1));
+        getContentPane().add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(449, 9, -1, -1));
 
         jPanel1.setBackground(new java.awt.Color(88, 41, 41));
 
@@ -120,12 +125,15 @@ public class crearP extends javax.swing.JInternalFrame {
             .addGap(0, 145, Short.MAX_VALUE)
         );
 
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 29, 516, -1));
+
         btnCargar.setText("Cargar");
         btnCargar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCargarActionPerformed(evt);
             }
         });
+        getContentPane().add(btnCargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(353, 180, 173, -1));
 
         btnListo.setText("Listo");
         btnListo.addActionListener(new java.awt.event.ActionListener() {
@@ -133,6 +141,7 @@ public class crearP extends javax.swing.JInternalFrame {
                 btnListoActionPerformed(evt);
             }
         });
+        getContentPane().add(btnListo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 155, -1));
 
         panel2.setBackground(new java.awt.Color(38, 99, 40));
 
@@ -149,52 +158,11 @@ public class crearP extends javax.swing.JInternalFrame {
 
         jScrollPane1.setViewportView(panel2);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 529, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addGap(0, 0, Short.MAX_VALUE)
-                            .addComponent(btnCargar, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(btnListo, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(0, 0, Short.MAX_VALUE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(112, 112, 112)
-                            .addComponent(label1)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 269, Short.MAX_VALUE)
-                            .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(76, 76, 76)))
-                    .addContainerGap()))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(223, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(9, 9, 9)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(label1)
-                        .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnCargar)
-                        .addComponent(btnListo))
-                    .addContainerGap(295, Short.MAX_VALUE)))
-        );
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 222, 526, 268));
+
+        jLabel1.setBackground(new java.awt.Color(0, 153, 0));
+        jLabel1.setOpaque(true);
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 550, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -237,6 +205,7 @@ public class crearP extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnCargar;
     private javax.swing.JButton btnListo;
     private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel label1;

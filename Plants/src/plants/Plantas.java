@@ -97,7 +97,7 @@ public class Plantas extends javax.swing.JPanel {
         rbtnDisparo = new javax.swing.JRadioButton();
         jLabel5 = new javax.swing.JLabel();
         numeroPersonajes = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         jButton3.setText("jButton3");
 
@@ -124,9 +124,11 @@ public class Plantas extends javax.swing.JPanel {
         });
         add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 62, -1, -1));
 
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Nombre:");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 14, -1, -1));
 
+        nombrePersonajes.setBackground(new java.awt.Color(204, 255, 153));
         nombrePersonajes.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 nombrePersonajesKeyTyped(evt);
@@ -134,9 +136,11 @@ public class Plantas extends javax.swing.JPanel {
         });
         add(nombrePersonajes, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 11, 418, -1));
 
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Puntos:");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 42, -1, -1));
 
+        numeroAtaque.setBackground(new java.awt.Color(204, 255, 153));
         numeroAtaque.setText("10");
         numeroAtaque.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -145,9 +149,11 @@ public class Plantas extends javax.swing.JPanel {
         });
         add(numeroAtaque, new org.netbeans.lib.awtextra.AbsoluteConstraints(295, 42, 64, -1));
 
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Ataque:");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(252, 42, -1, -1));
 
+        rbtnDirecto.setForeground(new java.awt.Color(255, 255, 255));
         rbtnDirecto.setText("Directo");
         rbtnDirecto.setOpaque(false);
         rbtnDirecto.addActionListener(new java.awt.event.ActionListener() {
@@ -157,6 +163,7 @@ public class Plantas extends javax.swing.JPanel {
         });
         add(rbtnDirecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 64, -1, -1));
 
+        rbtnDisparo.setForeground(new java.awt.Color(255, 255, 255));
         rbtnDisparo.setText("Disparo");
         rbtnDisparo.setOpaque(false);
         rbtnDisparo.addActionListener(new java.awt.event.ActionListener() {
@@ -166,9 +173,11 @@ public class Plantas extends javax.swing.JPanel {
         });
         add(rbtnDisparo, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 87, -1, -1));
 
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Cantidad de ");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 119, 288, -1));
 
+        numeroPersonajes.setBackground(new java.awt.Color(204, 255, 153));
         numeroPersonajes.setText("1");
         numeroPersonajes.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -177,8 +186,9 @@ public class Plantas extends javax.swing.JPanel {
         });
         add(numeroPersonajes, new org.netbeans.lib.awtextra.AbsoluteConstraints(347, 116, 126, -1));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/hqdefault.jpg"))); // NOI18N
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 150));
+        jLabel7.setBackground(new java.awt.Color(0, 153, 0));
+        jLabel7.setOpaque(true);
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 150));
     }// </editor-fold>//GEN-END:initComponents
 
     private void numeroAtaqueKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_numeroAtaqueKeyTyped
@@ -298,7 +308,7 @@ public class Plantas extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JTextField nombrePersonajes;
     private javax.swing.JTextField numeroAtaque;
     private javax.swing.JTextField numeroPersonajes;

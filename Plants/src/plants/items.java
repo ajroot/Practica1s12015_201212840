@@ -101,6 +101,9 @@ public class items extends javax.swing.JFrame {
         setTitle("Crea tu usuario");
         setBackground(new java.awt.Color(51, 204, 0));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        nombretxt.setBackground(new java.awt.Color(204, 255, 153));
+        nombretxt.setForeground(new java.awt.Color(0, 51, 102));
         getContentPane().add(nombretxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 52, 375, -1));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -113,6 +116,8 @@ public class items extends javax.swing.JFrame {
         jLabel2.setText("Cantidad:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
 
+        Cant.setBackground(new java.awt.Color(204, 255, 153));
+        Cant.setForeground(new java.awt.Color(0, 51, 102));
         Cant.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 CantKeyTyped(evt);
@@ -152,7 +157,8 @@ public class items extends javax.swing.JFrame {
         jLabel3.setText("Nuevo extra:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
 
-        lblNuevoCampo.setForeground(new java.awt.Color(204, 204, 204));
+        lblNuevoCampo.setBackground(new java.awt.Color(204, 255, 153));
+        lblNuevoCampo.setForeground(new java.awt.Color(0, 51, 102));
         lblNuevoCampo.setText("Ingresa tu Nuevo campo");
         lblNuevoCampo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -166,7 +172,8 @@ public class items extends javax.swing.JFrame {
         jLabel4.setText("Entrada Extra");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, -1, -1));
 
-        lblRespuestaNuevo.setForeground(new java.awt.Color(204, 204, 204));
+        lblRespuestaNuevo.setBackground(new java.awt.Color(204, 255, 153));
+        lblRespuestaNuevo.setForeground(new java.awt.Color(0, 51, 102));
         lblRespuestaNuevo.setText("Ingresa tu respuesta");
         lblRespuestaNuevo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
