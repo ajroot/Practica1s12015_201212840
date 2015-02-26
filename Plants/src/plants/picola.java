@@ -11,6 +11,7 @@ import plants.TDA.Lista_Doble;
 import plants.TDA.Pila;
 import plants.TDA.cola;
 import java.util.Random;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -26,6 +27,9 @@ public class picola extends javax.swing.JPanel implements Runnable {
         initComponents();
         
     }
+    boolean correr=true;
+    int contadorHilo=0;
+
     objeto imagen=new objeto();
     Lista_Doble lista=new Lista_Doble();
     Pila p=new Pila();
@@ -100,7 +104,44 @@ public class picola extends javax.swing.JPanel implements Runnable {
                 
     }
     
- 
+ public void desapilar()
+ {
+     
+     if (pila)
+     {
+         System.out.println("es una pila");
+         int t=this.p.cantidadElementos();
+         Pila temp1=new Pila();
+         for(int i=1;i<t;i++)
+         {
+             temp1.Insertar(p.Extraer());
+         }
+         System.out.println("La pila tiene " +t+" elementos y el contro de"
+                 + "plantas es: "+controlPlantas);
+         if(controlPlantas>0)
+         {
+             this.removeAll();
+             for(int i=1;i<t;i++)
+            {
+                 objeto n=new objeto();
+                 n=(objeto)temp1.Extraer();
+                 p.Insertar(n);
+                 this.add(n);
+                this.updateUI();
+                this.repaint();
+                 controlPlantas--;
+                 
+            }
+             
+             //Pila a=new Pila();
+         }
+     }
+     else
+     {
+         
+     }
+             
+ }
     public personaje personajeRandom()
     {
         personaje devolver=null;
@@ -166,6 +207,68 @@ public class picola extends javax.swing.JPanel implements Runnable {
 
     @Override
     public void run() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //throw new UnsupportedOperationException("Not supported yet.");
+      personaje te=new personaje();
+      
+        this.setLayout(null);
+        this.setLayout(new GridLayout(tamano,1));
+        while(correr)
+        {
+            contadorHilo++;
+            try{
+            Thread.sleep(5000);
+        }catch (InterruptedException e) { }
+            int temporal=tamano-1;
+        if(this.getComponentCount()<tamano)
+        {
+            if(pila)
+                {
+                    if(!this.lista.esVacia())
+                    {
+                        objeto n=new objeto();
+                        te=personajeRandom();
+                        if(te!=null)
+                        {
+                          n.setPersonaje(te,true);
+                          p.Insertar(n);
+                          this.add(n);//,-1);
+                          this.updateUI();
+                          controlPlantas++;
+                      }   
+                    }
+                }
+
+
+
+
+
+               else
+               {
+                   if(!this.lista.esVacia())
+                    {
+                        objeto n=new objeto();
+                        te=personajeRandom();
+                        if(te!=null)
+                        {
+                            n.setPersonaje(te,false);
+                            c.insertar(n);
+                            this.add(n);
+                            this.updateUI();
+                            controlZombies++;
+                        }
+                    }
+               }
+            
+        }
+            
+     }//To change body of generated methods, choose Tools | Templates.
     }
+    Thread hilo;
+
+  public void start(){
+     if(hilo==null){
+        hilo=new Thread(this);
+        hilo.start();
+     }
+  }
 }
