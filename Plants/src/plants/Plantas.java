@@ -23,7 +23,7 @@ public class Plantas extends javax.swing.JPanel {
     public Plantas() {
         initComponents();
         cambiarImagen(1);
-        
+        rbtnDirecto.setSelected(true);
         
     }
     personaje nuevo=new personaje();
@@ -97,34 +97,45 @@ public class Plantas extends javax.swing.JPanel {
         rbtnDisparo = new javax.swing.JRadioButton();
         jLabel5 = new javax.swing.JLabel();
         numeroPersonajes = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
 
         jButton3.setText("jButton3");
 
-        jLabel1.setText("jLabel1");
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 91, 74));
 
+        jButton1.setBackground(new java.awt.Color(0, 153, 0));
         jButton1.setText("<");
+        jButton1.setOpaque(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 62, -1, -1));
 
+        jButton2.setBackground(new java.awt.Color(0, 153, 0));
         jButton2.setText(">");
+        jButton2.setOpaque(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
+        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 62, -1, -1));
 
         jLabel2.setText("Nombre:");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 14, -1, -1));
 
         nombrePersonajes.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 nombrePersonajesKeyTyped(evt);
             }
         });
+        add(nombrePersonajes, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 11, 418, -1));
 
         jLabel3.setText("Puntos:");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 42, -1, -1));
 
         numeroAtaque.setText("10");
         numeroAtaque.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -132,24 +143,31 @@ public class Plantas extends javax.swing.JPanel {
                 numeroAtaqueKeyTyped(evt);
             }
         });
+        add(numeroAtaque, new org.netbeans.lib.awtextra.AbsoluteConstraints(295, 42, 64, -1));
 
         jLabel4.setText("Ataque:");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(252, 42, -1, -1));
 
         rbtnDirecto.setText("Directo");
+        rbtnDirecto.setOpaque(false);
         rbtnDirecto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbtnDirectoActionPerformed(evt);
             }
         });
+        add(rbtnDirecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 64, -1, -1));
 
         rbtnDisparo.setText("Disparo");
+        rbtnDisparo.setOpaque(false);
         rbtnDisparo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbtnDisparoActionPerformed(evt);
             }
         });
+        add(rbtnDisparo, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 87, -1, -1));
 
         jLabel5.setText("Cantidad de ");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 119, 288, -1));
 
         numeroPersonajes.setText("1");
         numeroPersonajes.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -157,76 +175,10 @@ public class Plantas extends javax.swing.JPanel {
                 numeroPersonajesKeyTyped(evt);
             }
         });
+        add(numeroPersonajes, new org.netbeans.lib.awtextra.AbsoluteConstraints(347, 116, 126, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(nombrePersonajes))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(numeroPersonajes, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(rbtnDisparo)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(7, 7, 7)
-                                                .addComponent(jLabel3))
-                                            .addComponent(rbtnDirecto))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel4)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(numeroAtaque, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(nombrePersonajes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(5, 5, 5)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton1)
-                        .addComponent(jButton2))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(22, 22, 22)
-                                    .addComponent(rbtnDirecto))
-                                .addComponent(jLabel4)
-                                .addComponent(numeroAtaque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(rbtnDisparo))
-                        .addComponent(jLabel3)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(numeroPersonajes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/hqdefault.jpg"))); // NOI18N
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 150));
     }// </editor-fold>//GEN-END:initComponents
 
     private void numeroAtaqueKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_numeroAtaqueKeyTyped
@@ -346,6 +298,7 @@ public class Plantas extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JTextField nombrePersonajes;
     private javax.swing.JTextField numeroAtaque;
     private javax.swing.JTextField numeroPersonajes;

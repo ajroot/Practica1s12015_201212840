@@ -8,6 +8,10 @@ package plants;
 
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.Image;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import plants.TDA.Lista_Doble;
 
@@ -48,9 +52,30 @@ public class table extends javax.swing.JInternalFrame implements Runnable {
         this.uzombies=zombiee;
         this.cantidadPersonajesPlantas=plantas.tamano();
         this.cantidadPersonajesZombies=zombies.tamano();
+        cambiarImagen();
+                
     }
     
-
+    public void cambiarImagen()
+    {
+        String path="../imagenes/tableroimg.jpg";
+        //System.out.println(path);
+        ImageIcon imgIcon = new ImageIcon(getClass().getResource(path));
+        Image imgEscalada = imgIcon.getImage().getScaledInstance(500,500, Image.SCALE_SMOOTH);
+        Icon iconoEscalado = new ImageIcon(imgEscalada);
+        lbltablero1.setIcon(iconoEscalado);
+    }
+    
+    
+    public void ponerEnTablero()
+    {
+        JLabel a=new JLabel();
+        a.setText("nuevo");
+        a.mouseDrag(null, WIDTH, WIDTH);
+        this.add(a);
+        a.setBounds(100, 100,25,25);
+       
+    }
     
     public void crearPaneles()
     {
@@ -95,6 +120,7 @@ public class table extends javax.swing.JInternalFrame implements Runnable {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
+        lbltablero1 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(17, 119, 15));
@@ -146,11 +172,17 @@ public class table extends javax.swing.JInternalFrame implements Runnable {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbltablero1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbltablero1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jLabel1.setFont(new java.awt.Font("Showcard Gothic", 1, 18)); // NOI18N
@@ -185,7 +217,7 @@ public class table extends javax.swing.JInternalFrame implements Runnable {
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(scrollPlantas, javax.swing.GroupLayout.DEFAULT_SIZE, 391, Short.MAX_VALUE)
+                    .addComponent(scrollPlantas, javax.swing.GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE)
                     .addComponent(scrollZombies, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -206,6 +238,7 @@ public class table extends javax.swing.JInternalFrame implements Runnable {
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lbltablero1;
     private javax.swing.JPanel panelCola;
     private javax.swing.JPanel panelPila;
     private javax.swing.JScrollPane scrollPlantas;

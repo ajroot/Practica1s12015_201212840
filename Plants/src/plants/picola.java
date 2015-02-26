@@ -103,21 +103,21 @@ public class picola extends javax.swing.JPanel implements Runnable {
         }
                 
     }
-    
+    objeto temporaADevolver=new objeto();
  public void desapilar()
  {
      
      if (pila)
      {
-         System.out.println("es una pila");
+         //System.out.println("es una pila");
          int t=this.p.cantidadElementos();
          Pila temp1=new Pila();
          for(int i=1;i<t;i++)
          {
              temp1.Insertar(p.Extraer());
          }
-         System.out.println("La pila tiene " +t+" elementos y el contro de"
-                 + "plantas es: "+controlPlantas);
+         //System.out.println("La pila tiene " +t+" elementos y el contro de"
+           //      + "plantas es: "+controlPlantas);
          if(controlPlantas>0)
          {
              this.removeAll();
