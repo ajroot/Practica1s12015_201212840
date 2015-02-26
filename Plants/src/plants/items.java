@@ -125,7 +125,10 @@ public class items extends javax.swing.JFrame {
         });
         getContentPane().add(Cant, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 83, 375, -1));
 
+        jButton2.setBackground(new java.awt.Color(0, 102, 0));
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Listo!");
+        jButton2.setOpaque(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -133,7 +136,10 @@ public class items extends javax.swing.JFrame {
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 216, -1, -1));
 
+        jButton3.setBackground(new java.awt.Color(0, 102, 0));
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("Cancelar");
+        jButton3.setOpaque(false);
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -144,7 +150,10 @@ public class items extends javax.swing.JFrame {
         tipotxt.setText("Tipo");
         getContentPane().add(tipotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(217, 18, -1, 16));
 
+        jButton1.setBackground(new java.awt.Color(0, 102, 0));
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Extras");
+        jButton1.setOpaque(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
